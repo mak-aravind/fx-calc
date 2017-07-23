@@ -39,7 +39,7 @@ public class FileContentsCache {
 	private boolean loadFileContents() {
 		final List<String> listOfFileName = new ArrayList<String>(patternsMappedToFileName.keySet());
 		for (String fileName : listOfFileName) {
-			List<String> validatedInputLines = getValidatedInputLines(fileName);
+			final List<String> validatedInputLines = getValidatedInputLines(fileName);
 			if (null == validatedInputLines || validatedInputLines.isEmpty())
 				return true;
 			listCachedWithFileContents.put(fileName, validatedInputLines);

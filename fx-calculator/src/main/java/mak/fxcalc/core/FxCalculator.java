@@ -13,7 +13,7 @@ public class FxCalculator {
 	private final String termCurrency;
 	private final ConversionRateEmitter conversionRateEmitter;
 	
-	public FxCalculator(FxCalculatorRegistry fxCalculatorRegistry,CommandParser commandParser) {
+	public FxCalculator(final FxCalculatorRegistry fxCalculatorRegistry,final CommandParser commandParser) {
 		this.fxCalculatorRegistry = fxCalculatorRegistry;
 		this.commandParser = commandParser;
 		this.conversionRateEmitter = new ConversionRateEmitter(this.fxCalculatorRegistry);
@@ -22,7 +22,7 @@ public class FxCalculator {
 	}
 	
 	public String getResult(){
-		StringBuilder result = new StringBuilder();
+		final StringBuilder result = new StringBuilder();
 		if(hasValidCurrencies(baseCurrency,termCurrency)){
 			result.append(commandParser.getOutputToDisplay());
 			result.append(" ");
@@ -36,13 +36,8 @@ public class FxCalculator {
 	
 	private Float getConvertedValue() {
 		final Float amount = Float.parseFloat(commandParser.getAmount());
-		Float convertedValue;
-		if (baseCurrency.equals(termCurrency)){
-			convertedValue = amount;
-		}else{
-			final Float conversionRate = conversionRateEmitter.getConversionRate(baseCurrency, termCurrency);
-			convertedValue =  amount * conversionRate;
-		}
+		final Float convertedValue = baseCurrency.equals(termCurrency) ? amount : 
+							amount * conversionRateEmitter.getConversionRate(baseCurrency, termCurrency);
 		return Float.parseFloat(String.format(getDecimalPlaceFormatter(), convertedValue));
 	}
 	
