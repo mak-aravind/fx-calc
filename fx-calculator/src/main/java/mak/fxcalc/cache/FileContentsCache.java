@@ -13,8 +13,8 @@ import mak.fxcalc.io.validator.UserInputFileValidator;
 public class FileContentsCache {
 	
 	final Map<String, Pattern> patternsMappedToFileName;
-	private final FilePatterns filePatterns;
-	private Map<String, List<String>> listCachedWithFileContents = new HashMap<>();
+	final private FilePatterns filePatterns;
+	final private Map<String, List<String>> listCachedWithFileContents = new HashMap<>();
 	final private boolean empty;
 	
 	public FileContentsCache(FilePatterns filePatterns){
@@ -39,7 +39,6 @@ public class FileContentsCache {
 		for (String fileName : listOfFileName) {
 			final List<String> validatedInputLines = getValidatedInputLines(fileName);
 			if (null == validatedInputLines || validatedInputLines.isEmpty()){
-					this.listCachedWithFileContents = Collections.emptyMap();
 					return true;
 			}
 			listCachedWithFileContents.put(fileName, validatedInputLines);
