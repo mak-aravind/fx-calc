@@ -1,15 +1,14 @@
-package mak.fxcalc.core.emitter;
+package mak.fxcalc.service;
 
-import mak.fxcalc.core.registry.FxCalculatorRegistry;
+import mak.fxcalc.registry.FxCalculatorRegistry;
 import mak.fxcalc.table.ConversionRateFeedTable;
 import mak.fxcalc.table.CrossCurrencyTable;
-
-public class ConversionRateEmitter {
+public class ConversionRateService{
 
 	private final ConversionRateFeedTable conversionRateFeedTable;
 	private final CrossCurrencyTable crossCurrencyTable;
 
-	public ConversionRateEmitter(FxCalculatorRegistry fxCalculatorRegistry) {
+	public ConversionRateService(FxCalculatorRegistry fxCalculatorRegistry) {
 		this.conversionRateFeedTable = fxCalculatorRegistry.getConversionRateFeedTable();
 		this.crossCurrencyTable = fxCalculatorRegistry.getCrossCurrencyTable();
 	}
@@ -22,9 +21,10 @@ public class ConversionRateEmitter {
 			final Float crossCurrencyRate1 = getConversionRate(baseCurrency, intermediateCurrency);
 			final Float crossCurrrencyRate2 = getConversionRate(intermediateCurrency, termCurrency);
 			final Float crossCurrencyRate = crossCurrencyRate1 * crossCurrrencyRate2;
-			return Math.round(crossCurrencyRate * 10000.0f) / 10000.0f;
+			return (float) (Math.ceil(crossCurrencyRate * 10000.0f) / 10000.0f);
 		}
 	}
+	
 	private Float getConversionRateFromFeed(String baseCurrency, String termCurrency) {
 		final String currenciesComboKey = baseCurrency + termCurrency;
 		return conversionRateFeedTable.getConversionRate(currenciesComboKey);

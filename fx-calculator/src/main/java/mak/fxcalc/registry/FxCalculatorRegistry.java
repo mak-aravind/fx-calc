@@ -1,11 +1,9 @@
-package mak.fxcalc.core.registry;
+package mak.fxcalc.registry;
 
-import static mak.fxcalc.app.config.FileConfig.VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME;
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME;
 
 import java.util.List;
 
-import mak.fxcalc.core.cache.FileContentsCache;
+import mak.fxcalc.cache.FileContentsCache;
 import mak.fxcalc.lookup.ILookUp;
 import mak.fxcalc.table.ConversionRateFeedTable;
 import mak.fxcalc.table.CrossCurrencyTable;
@@ -40,21 +38,30 @@ public class FxCalculatorRegistry {
 	}
 
 	public static FxCalculatorRegistry buildFxCalculatorRegistry(FileContentsCache fileContentsCache) {
+		if (null == fileContentsCache|| fileContentsCache.isEmpty()) return null;
+		
 		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = buildLookUpRegistry(fileContentsCache);
+		
 		if (null == fxCalculatorLookUpRegistry)
 			return null;
 
 		final CrossCurrencyTable crossCurrencyTable = buildCrossCurrencyTable(fileContentsCache,
 				fxCalculatorLookUpRegistry);
 		final ConversionRateFeedTable conversionRateFeedTable = buildConversionRateFeedTable(fileContentsCache);
+		
 		final FxCalculatorRegistry fxCalculatorRegistry = new FxCalculatorRegistry(fxCalculatorLookUpRegistry,
 				crossCurrencyTable, conversionRateFeedTable);
 		return fxCalculatorRegistry;
 	}
 
 	private static ConversionRateFeedTable buildConversionRateFeedTable(FileContentsCache fileContentsCache) {
+		
+		final String currencyRatesFileName = fileContentsCache.getFilePatterns()
+															  .getFileConfig()
+															  .getCurrencyRatesFileName();
+		
 		final List<String> conversionRateFeedLines = fileContentsCache
-				.getCachedFileContentsAsList(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME);
+				.getCachedFileContentsAsList(currencyRatesFileName);
 		final ConversionRateFeedTable conversionRateFeedTable = ConversionRateFeedTable
 				.createConversionRateFeedLookUp(conversionRateFeedLines);
 		return conversionRateFeedTable;
@@ -62,9 +69,13 @@ public class FxCalculatorRegistry {
 
 	private static CrossCurrencyTable buildCrossCurrencyTable(FileContentsCache fileContentsCache,
 			FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry) {
+		final String crossCurrencyMatrixFileName = fileContentsCache.getFilePatterns()
+																	.getFileConfig()
+																	.getCrossCurrencyMatrixFileName();
+		
 		final ILookUp currencyIndexLookUp = fxCalculatorLookUpRegistry.getCurrencyIndexLookUp();
 		final List<String> crossCurrencyMatrixList = fileContentsCache
-				.getCachedFileContentsAsList(VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME);
+				.getCachedFileContentsAsList(crossCurrencyMatrixFileName);
 		final CrossCurrencyTable crossCurrencyTable = CrossCurrencyTable
 				.createCrossCurrencyTable(crossCurrencyMatrixList, currencyIndexLookUp);
 		return crossCurrencyTable;

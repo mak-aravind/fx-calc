@@ -1,6 +1,6 @@
 package mak.fxcalc.lookup;
 
-import static mak.fxcalc.parser.ParserConfig.CURRENCY_DECIMAL_LOOK_UP_PARSER;
+import static mak.fxcalc.app.config.ParserConfig.CURRENCY_DECIMAL_LOOK_UP_PARSER;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,16 +1,16 @@
-package mak.fxcalc.io.reader
+package mak.fxcalc.io.validator
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_DECIMAL_PLACES_PATTERN
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
+import static mak.fxcalc.cache.FileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
 
 import java.util.List
 
+import mak.fxcalc.io.reader.InputReader
 import mak.fxcalc.io.validator.UserInputFileValidator
 import spock.lang.Specification
-
-import static mak.fxcalc.app.config.FileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
 
 class CurrencyDecimalPlacesFileValidatorSpec extends Specification{
 	

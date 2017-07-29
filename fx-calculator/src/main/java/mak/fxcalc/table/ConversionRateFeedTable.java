@@ -1,6 +1,6 @@
 package mak.fxcalc.table;
 
-import static mak.fxcalc.parser.ParserConfig.CONVERSION_RATE_FEED_TABLE_PARSER;
+import static mak.fxcalc.app.config.ParserConfig.CONVERSION_RATE_FEED_TABLE_PARSER;
 
 import java.util.Collections;
 import java.util.List;

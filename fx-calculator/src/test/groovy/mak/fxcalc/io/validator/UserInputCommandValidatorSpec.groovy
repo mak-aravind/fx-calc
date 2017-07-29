@@ -1,4 +1,4 @@
-package mak.fxcalc.io.reader
+package mak.fxcalc.io.validator
 
 import java.util.List
 
@@ -6,13 +6,23 @@ import mak.fxcalc.io.validator.UserInputCommandValidator
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.CommandInputReaderConfig.INPUT_COMMAND_PATTERN
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
 
 import spock.lang.Specification
 
 class UserInputCommandValidatorSpec extends Specification{
 	def inputReader = new UserInputCommandValidator(INPUT_COMMAND_PATTERN)
+	
+	def "Empty command should return empty list"(String inputCurrencyConversionCommand,List result){
+		expect:
+			inputReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
+		where:
+			inputCurrencyConversionCommand	|result
+			""								|EMPTY_LIST
+			null							|EMPTY_LIST
+	}
+	
 	
 	def "Command should be start with three character"(String inputCurrencyConversionCommand,List result){
 		expect:
@@ -49,5 +59,15 @@ class UserInputCommandValidatorSpec extends Specification{
 			"AUD 100.00 USD"				|EMPTY_LIST
 			"JPY 100 in USD"				|["JPY 100 IN USD"]
 			"JPY 0 in USD"					|["JPY 0 IN USD"]
+	}
+	
+	def "Except IOException thrown during validating should return an empty list"(){
+		given:
+			UserInputCommandValidator mockedValidator = Mock()
+			mockedValidator.getValidatedInputLines("JPY 100 in USD") >> {throw new IOException()}
+		when:
+			mockedValidator.getValidatedInputLines("JPY 100 in USD")
+		then:
+			thrown IOException
 	}
 }

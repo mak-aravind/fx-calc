@@ -23,15 +23,12 @@ public class UserInputCommandValidator implements IUserInputValidator{
 	}
 
 	@Override
-	public List<String> getValidatedInputLines(final String command) {
+	public List<String> getValidatedInputLines(final String command) throws IOException{
 		if (command == null || command.isEmpty()) return emptyList();
 		List<String> validatedInputLines = emptyList();
 		try(final Reader inputReader = new StringReader(command)){
 			commandReader.setReader(inputReader);
 			validatedInputLines = commandReader.getValidatedInputLines();
-		}catch (IOException e) {
-			System.out.println("Unexpected IO exception");
-			return emptyList();
 		}
 		return validatedInputLines.isEmpty() ?  Collections.emptyList() : validatedInputLines;
 	}

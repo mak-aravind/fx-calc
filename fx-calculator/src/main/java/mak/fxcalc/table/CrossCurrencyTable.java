@@ -1,6 +1,6 @@
 package mak.fxcalc.table;
 
-import static mak.fxcalc.parser.ParserConfig.CROSS_CURRENCY_TABLE_PARSER;
+import static mak.fxcalc.app.config.ParserConfig.CROSS_CURRENCY_TABLE_PARSER;
 
 import java.util.List;
 

@@ -1,13 +1,14 @@
-package mak.fxcalc.io.reader
+package mak.fxcalc.io.validator
 
 import java.util.List
 
+import mak.fxcalc.io.reader.InputReader
 import mak.fxcalc.io.validator.UserInputFileValidator
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CROSS_CURRENCY_EACH_LINE_PATTERN
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
 
 import spock.lang.Specification
 

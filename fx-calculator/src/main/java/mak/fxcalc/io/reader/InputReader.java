@@ -43,6 +43,8 @@ public class InputReader implements IReader{
 		}
 	}
 	public boolean isValid(final String line){
-        return this.pattern.matcher(line).matches();
+        return this.pattern
+        			.matcher(line)
+        			.matches();
     }
 }

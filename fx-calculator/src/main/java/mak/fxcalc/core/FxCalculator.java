@@ -1,64 +1,84 @@
 package mak.fxcalc.core;
 
-import mak.fxcalc.core.emitter.ConversionRateEmitter;
-import mak.fxcalc.core.registry.FxCalculatorRegistry;
-import mak.fxcalc.lookup.ILookUp;
-import mak.fxcalc.parser.CommandParser;
+import java.io.IOException;
+import mak.fxcalc.app.config.CommandInputReaderConfig;
+import mak.fxcalc.service.ConversionRateService;
+import mak.fxcalc.service.CurrencyDecimalPlaceService;
+import mak.fxcalc.service.CurrencyIndexLookUpService;
+import mak.fxcalc.service.RegistryServiceProvider;
 
 public class FxCalculator {
 	
-	private final FxCalculatorRegistry fxCalculatorRegistry;
-	private final CommandParser commandParser;
-	private final String baseCurrency;
-	private final String termCurrency;
-	private final ConversionRateEmitter conversionRateEmitter;
+	private final RegistryServiceProvider registryServiceProvider;
+	private String baseCurrency;
+	private String termCurrency;
+	private UserCommand userCommand;
 	
-	public FxCalculator(final FxCalculatorRegistry fxCalculatorRegistry,final CommandParser commandParser) {
-		this.fxCalculatorRegistry = fxCalculatorRegistry;
-		this.commandParser = commandParser;
-		this.conversionRateEmitter = new ConversionRateEmitter(this.fxCalculatorRegistry);
-		this.baseCurrency = this.commandParser.getBaseCurrency();
-		this.termCurrency = this.commandParser.getTermCurrency();
+	public FxCalculator(RegistryServiceProvider registryServiceProvider) {
+		 this.registryServiceProvider =  registryServiceProvider;
 	}
 	
-	public String getResult(){
+	public boolean switchOn() {
+		return null != registryServiceProvider || !registryServiceProvider.isEmptyData();
+	}
+	
+	public String processCommand(final String command) {
+		UserCommand userCommand;
+		try {
+			userCommand = new UserCommand(command);
+		} catch (InvalidCommandException e) {
+			return CommandInputReaderConfig.INVALID_COMMAND;
+		} catch (IOException e) {
+			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
+			return "Please retry your command";
+		}
+		setUserCommand(userCommand);
+		return getResult();
+	}
+	
+	private void setUserCommand(UserCommand userCommand) {
+		this.userCommand = userCommand;
+		this.baseCurrency = userCommand.getBaseCurrency();
+		this.termCurrency = userCommand.getTermCurrency();
+	}
+
+	private String getResult(){
+		CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
-		if(hasValidCurrencies(baseCurrency,termCurrency)){
-			result.append(commandParser.getOutputToDisplay());
-			result.append(" ");
-			result.append(getConvertedValue());
+		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency)){
+			appendConvertedValue(result);
 		}
 		else{
-			appendUnavilability(result);
+			appendUnavailability(result);
 		}
 		return result.toString();
 	}
-	
-	private Float getConvertedValue() {
-		final Float amount = Float.parseFloat(commandParser.getAmount());
-		final Float convertedValue = baseCurrency.equals(termCurrency) ? amount : 
-							amount * conversionRateEmitter.getConversionRate(baseCurrency, termCurrency);
-		return Float.parseFloat(String.format(getDecimalPlaceFormatter(), convertedValue));
+
+	private void appendConvertedValue(final StringBuilder result) {
+		result.append(userCommand.getOutputToDisplay());
+		result.append(" ");
+		result.append(getConvertedValue());
 	}
-	
-	private String getDecimalPlaceFormatter() {
-		final ILookUp currencyDecimalLookUp = fxCalculatorRegistry.getFxCalculatorLookUpRegistry()
-																  .getCurrencyDecimalLookUp();
-		final int decimalPoints = currencyDecimalLookUp.getValue(termCurrency);
-		final String formatter = "%."+ decimalPoints+ "f";
-		return formatter;
-	}
-	
-	private void appendUnavilability(StringBuilder result) {
+
+	private void appendUnavailability(final StringBuilder result) {
 		result.append("Unable to find rate for ");
 		result.append(baseCurrency);
 		result.append("/");
-		result.append((termCurrency));
+		result.append(termCurrency);
 	}
 	
-	private boolean hasValidCurrencies(String baseCurrency, String termCurrency) {
-		final ILookUp currencyIndexLookUp = fxCalculatorRegistry.getFxCalculatorLookUpRegistry()
-																.getCurrencyIndexLookUp();
-		return currencyIndexLookUp.contains(baseCurrency) && currencyIndexLookUp.contains(termCurrency);
+	private Float getConvertedValue() {
+		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
+		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
+		final Float amount = Float.valueOf(userCommand.getAmount().trim()).floatValue();
+		//final Float amount = Float.parseFloat(String.format(decimalPlaceFormatter, userCommand.getAmount()));
+		final Float convertedValue = calculateConversion(amount);
+		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
+	}
+
+	private float calculateConversion(final Float amount) {
+		final ConversionRateService conversionRateService = registryServiceProvider.getConversionRateService();
+		return baseCurrency.equals(termCurrency) ? amount : 
+							amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);
 	}
 }

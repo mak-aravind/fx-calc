@@ -1,4 +1,4 @@
-package mak.fxcalc.parser;
+package mak.fxcalc.app.config;
 
 public class ParserConfig {
 	/*private File(){

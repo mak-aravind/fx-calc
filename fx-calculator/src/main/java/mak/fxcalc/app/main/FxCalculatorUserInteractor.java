@@ -1,46 +1,49 @@
 package mak.fxcalc.app.main;
 
-import static mak.fxcalc.app.config.CommandInputReaderConfig.INPUT_COMMAND_PATTERN;
-import static mak.fxcalc.app.config.CommandInputReaderConfig.INVALID_COMMAND;
 import static mak.fxcalc.app.config.CommandInputReaderConfig.EXAMPLE_COMMAND;
+import static mak.fxcalc.app.main.FileName.*;
 
-import java.util.List;
 import java.util.Scanner;
 
+import mak.fxcalc.cache.FileConfig;
+import mak.fxcalc.cache.FileContentsCache;
+import mak.fxcalc.cache.FilePatterns;
 import mak.fxcalc.core.FxCalculator;
-import mak.fxcalc.core.cache.FileContentsCache;
-import mak.fxcalc.core.registry.FxCalculatorRegistry;
-import mak.fxcalc.io.validator.IUserInputValidator;
-import mak.fxcalc.io.validator.UserInputCommandValidator;
-import mak.fxcalc.parser.CommandParser;
+import mak.fxcalc.service.RegistryServiceProvider;
+import mak.fxcalc.service.ServiceNotAvailableException;
 
 public class FxCalculatorUserInteractor {
-	final FileContentsCache fileContentsCache = new FileContentsCache();
-	final FxCalculatorRegistry fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(fileContentsCache);
-
+	private final FxCalculator fxCalculator;
+	public FxCalculatorUserInteractor() {
+		final FileConfig fileConfig = new FileConfig(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME,
+													VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME,
+													VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME);
+		final FilePatterns filePatterns = new FilePatterns(fileConfig);
+		final FileContentsCache fileContentsCache = new FileContentsCache(filePatterns);
+		RegistryServiceProvider registryServiceProvider=null;
+		try {
+			registryServiceProvider = new RegistryServiceProvider(fileContentsCache);
+		} catch (ServiceNotAvailableException e) {
+			System.out.println("Cannot process with a mal-formed file/files");
+		}
+		this.fxCalculator = new FxCalculator(registryServiceProvider);
+	}
+	
 	public static void main(String[] args) {
 		final FxCalculatorUserInteractor userInteractor = new FxCalculatorUserInteractor();
-		userInteractor.switchOn();
-		userInteractor.printUserInstructions();
-		userInteractor.printExampleCommand();
-		userInteractor.interpretCommands();
+		if (userInteractor.fxCalculator.switchOn()){
+			userInteractor.printUserInstructions();
+			userInteractor.interpretCommands();
+		}else{
+			System.out.println("Invalid or Corrupted files");
+			userInteractor.switchOff();
+		}
 	}
-
-	private void switchOn() {
-		if (isEmptyData())
-			switchOff();
-	}
-
-	private boolean isEmptyData() {
-		if (fileContentsCache == null || fxCalculatorRegistry == null)
-			return true;
-		else
-			return fileContentsCache.isEmpty() || fxCalculatorRegistry.isEmptyRegistry();
-	}
-
 	private void printUserInstructions() {
-		System.out.println("======FX CALCULATOR=====");
-		System.out.println("Enter commands in format <BASE-CURRENCY> <AMOUNT> IN <TERM-CURRENCY>.");
+		System.out.println("\n\n\t\t\t\t======FX CALCULATOR=====");
+		System.out.println("\nEnter commands in format <BASE-CURRENCY> <AMOUNT> IN <TERM-CURRENCY>.");
+		printExampleCommand();
+		System.out.println("\nCtrl-c to exit\n");
 	}
 
 	private void printExampleCommand() {
@@ -48,31 +51,16 @@ public class FxCalculatorUserInteractor {
 	}
 
 	private void interpretCommands() {
-		final IUserInputValidator userInputCommandValidator = new UserInputCommandValidator(INPUT_COMMAND_PATTERN);
-		try (Scanner scanner = new Scanner(System.in)) {
+		try (final Scanner scanner = new Scanner(System.in)) {
 			while (true) {
 				final String command = scanner.nextLine();
-				final List<String> validatedCommandInput = userInputCommandValidator.getValidatedInputLines(command);
-				if (validatedCommandInput.isEmpty()) {
-					System.out.println(INVALID_COMMAND);
-					printExampleCommand();
-				}else{
-					final String result = processCommand(validatedCommandInput);
-					System.out.println(result + "\n");
-				}
+				final String result = fxCalculator.processCommand(command);
+				System.out.println(result + "\n");
 			}
-		}
+		} 
 	}
-
-	private String processCommand(final List<String> validatedCommandInput) {
-		final CommandParser commandParser = new CommandParser(validatedCommandInput);
-		final FxCalculator fxCalculator = new FxCalculator(fxCalculatorRegistry, commandParser);
-		final String result = fxCalculator.getResult();
-		return result;
-	}
-
+	
 	private void switchOff() {
-		System.out.println("Invalid or Corrupted files");
 		System.exit(0);
 	}
 }

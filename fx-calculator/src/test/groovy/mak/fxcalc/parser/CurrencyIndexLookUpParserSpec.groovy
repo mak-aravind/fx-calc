@@ -1,4 +1,4 @@
-package mak.fxcalc.core.parser
+package mak.fxcalc.parser
 
 import java.util.List
 

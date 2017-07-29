@@ -23,7 +23,7 @@ public class UserInputFileValidator implements IUserInputValidator{
 		this.fileReader = new InputReader(pattern);
 	}
 	@Override
-	public List<String> getValidatedInputLines(final String fileName) {
+	public List<String> getValidatedInputLines(final String fileName) throws IOException {
 		if (fileName == null || fileName.isEmpty()) return emptyList();
 		List<String> validatedInputLines = emptyList();
 		try(final Reader inputReader = getInputReader(fileName)){
@@ -31,9 +31,6 @@ public class UserInputFileValidator implements IUserInputValidator{
 				return emptyList();
 			fileReader.setReader(inputReader);
 			validatedInputLines = fileReader.getValidatedInputLines();
-		}catch (IOException e) {
-			System.out.println("Unexpected IO exception");
-			return emptyList();
 		}
 		return validatedInputLines.isEmpty() ?  Collections.emptyList() : validatedInputLines;
 	}
@@ -43,12 +40,8 @@ public class UserInputFileValidator implements IUserInputValidator{
 		try {
 			inputReader = DefaultFileUtil.getInputStreamReader(fileName);
 		} catch (FileNotFoundException e) {
-			try {
-				inputReader = new FileReader(fileName);
-			} catch (FileNotFoundException fileNotFoundException) {
 				System.out.println("File not found Please rerun with valid file name.");
 				return null;
-			}
 		}
 		return inputReader;
 	}

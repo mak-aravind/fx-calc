@@ -1,4 +1,4 @@
-package mak.fxcalc.core.parser
+package mak.fxcalc.parser
 
 import spock.lang.Specification
 
@@ -9,8 +9,8 @@ import mak.fxcalc.io.validator.UserInputFileValidator
 import mak.fxcalc.parser.CrossCurrencyTableParser
 import mak.fxcalc.parser.CurrencyIndexLookUpParser
 
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
 
 class CrossCurrencyParserSpec extends Specification{
 	def crossCurrencyParser = new CrossCurrencyTableParser(CSV_STRIPPING_PATTERN)

@@ -1,4 +1,4 @@
-package mak.fxcalc.core.parser
+package mak.fxcalc.parser
 
 import java.util.List
 
@@ -9,8 +9,8 @@ import spock.lang.Specification
 
 import static java.util.Collections.EMPTY_MAP
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_DECIMAL_PLACES_PATTERN
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
 
 class CurrencyDecimalLookUpParserSpec extends Specification{
 

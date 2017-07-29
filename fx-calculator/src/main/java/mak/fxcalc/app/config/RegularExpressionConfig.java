@@ -2,9 +2,9 @@ package mak.fxcalc.app.config;
 
 public class RegularExpressionConfig {
 	
-	private RegularExpressionConfig(){
+	/*private RegularExpressionConfig(){
 		throw new AssertionError();//Big Bang when instantiated from inside class(locally)
-	}
+	}*/
 	public static final int NUMBER_OF_CURRENCIES_SUPPORTED = 11;
 	
 	public static final String CROSS_CURRENCY_EACH_LINE_REGEX = "^[a-zA-Z]{3}(\\,[a-zA-Z]{3}){"+NUMBER_OF_CURRENCIES_SUPPORTED+"}$";

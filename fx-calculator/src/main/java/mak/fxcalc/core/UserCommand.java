@@ -1,36 +1,39 @@
-package mak.fxcalc.parser;
+package mak.fxcalc.core;
 
 import static mak.fxcalc.app.config.CommandInputReaderConfig.INPUT_COMMAND_PATTERN;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 
-public class CommandParser {
-	private final List<String> commandList;
-	private String command;
+import mak.fxcalc.io.validator.IUserInputValidator;
+import mak.fxcalc.io.validator.UserInputCommandValidator;
+
+public class UserCommand {
+	private final String command;
 	private String baseCurrency;
 	private String termCurrency;
 	private String amount;
 	private String outputToDisplay;
+	
+	final IUserInputValidator userInputCommandValidator = new UserInputCommandValidator(INPUT_COMMAND_PATTERN);
 
-	public CommandParser(List<String> validatedInputLines) {
-		this.commandList = validatedInputLines;
-		setKeyAttributes();
+	public UserCommand(final String command) throws InvalidCommandException, IOException {
+		this.command = command;
+		List<String> validatedInputLines = userInputCommandValidator.getValidatedInputLines(this.command);
+		if (validatedInputLines.isEmpty()) 
+			throw new InvalidCommandException();
+		setKeyAttributes(validatedInputLines.get(0));
 	}
 
-	public void setKeyAttributes() {
-		this.command = commandList.get(0);
-		final Matcher matcher = INPUT_COMMAND_PATTERN.matcher(this.command);
+	private void setKeyAttributes(final String command){
+		final Matcher matcher = INPUT_COMMAND_PATTERN.matcher(command);
 		if (matcher.find()) {
 			this.baseCurrency = getBaseCurrency(matcher);
 			this.termCurrency = getTermCurrency(matcher);
 			this.amount = matcher.group(5);
-			this.outputToDisplay = getFormattedOutputToDisplay();
+			this.outputToDisplay = getFormattedOutput();
 		}
-	}
-
-	public String getCommand() {
-		return command;
 	}
 
 	public String getBaseCurrency() {
@@ -49,7 +52,7 @@ public class CommandParser {
 		return outputToDisplay;
 	}
 
-	private String getFormattedOutputToDisplay() {
+	private String getFormattedOutput() {
 		StringBuilder formattedOutputToDisplay = new StringBuilder();
 		formattedOutputToDisplay.append(baseCurrency);
 		formattedOutputToDisplay.append(" ");

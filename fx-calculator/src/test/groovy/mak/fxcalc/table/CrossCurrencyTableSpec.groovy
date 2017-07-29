@@ -1,12 +1,13 @@
 package mak.fxcalc.table
 
 
-import static mak.fxcalc.app.config.FileConfig.VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
+import mak.fxcalc.registry.FxCalculatorLookUpRegistry
+import mak.fxcalc.registry.FxCalculatorRegistry
 
-import mak.fxcalc.core.registry.FxCalculatorLookUpRegistry
-import mak.fxcalc.core.registry.FxCalculatorRegistry
+import static mak.fxcalc.cache.FileConfig.VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.cache.FileConfig.VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME
+import static mak.fxcalc.cache.FileConfig.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
+
 import mak.fxcalc.lookup.CurrencyIndexLookUp
 
 class CrossCurrencyTableSpec {

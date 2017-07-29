@@ -1,4 +1,4 @@
-package mak.fxcalc.core.parser
+package mak.fxcalc.parser
 
 import java.util.List
 
@@ -9,8 +9,8 @@ import spock.lang.Specification
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_CONVERSION_RATE_PATTERN
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
-import static mak.fxcalc.app.config.FileConfig.INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
 
 
 class ConversionRateFeedLookUpParserSpec extends Specification{

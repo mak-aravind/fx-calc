@@ -1,8 +1,9 @@
 package mak.fxcalc.io.util
 
 import spock.lang.Specification
+
+import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
 import static mak.fxcalc.io.util.DefaultFileUtil.getInputStreamReader
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
 
 class DefaultFileUtilSpec extends Specification{
 	

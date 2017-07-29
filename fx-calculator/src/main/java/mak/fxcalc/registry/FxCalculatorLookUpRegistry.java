@@ -1,11 +1,8 @@
-package mak.fxcalc.core.registry;
-
-import static mak.fxcalc.app.config.FileConfig.VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME;
-import static mak.fxcalc.app.config.FileConfig.VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME;
+package mak.fxcalc.registry;
 
 import java.util.List;
 
-import mak.fxcalc.core.cache.FileContentsCache;
+import mak.fxcalc.cache.FileContentsCache;
 import mak.fxcalc.lookup.CurrencyDecimalLookUp;
 import mak.fxcalc.lookup.CurrencyIndexLookUp;
 import mak.fxcalc.lookup.ILookUp;
@@ -26,15 +23,23 @@ public class FxCalculatorLookUpRegistry {
 	}
 	
 	public static FxCalculatorLookUpRegistry buildFxCalculatorLookUpRegistry(FileContentsCache fileContentsCache) {
+		final String currencyDecimalPlacesFileName = fileContentsCache.getFilePatterns()
+																	  .getFileConfig()
+																	  .getCurrencyDecimalPlacesFileName();
+		
 		final List<String> currencyDecimalPlacesList = fileContentsCache
-				.getCachedFileContentsAsList(VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME);
+				.getCachedFileContentsAsList(currencyDecimalPlacesFileName);
 		final CurrencyDecimalLookUp currencyDecimalLookUp = CurrencyDecimalLookUp
 				.createCurrencyDecimalLookUp(currencyDecimalPlacesList);
 		if (null == currencyDecimalLookUp)
 			return null;
 		
+		final String crossCurrencyMatrixFileName = fileContentsCache.getFilePatterns()
+				  											  		.getFileConfig()
+				  											  		.getCrossCurrencyMatrixFileName();
+		
 		final List<String> crossCurrencyMatrixList = fileContentsCache
-				.getCachedFileContentsAsList(VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME);
+				.getCachedFileContentsAsList(crossCurrencyMatrixFileName);
 		final CurrencyIndexLookUp currencyIndexLookup = CurrencyIndexLookUp
 				.createCurrencyIndexLookup(crossCurrencyMatrixList);
 		if (null == currencyIndexLookup)

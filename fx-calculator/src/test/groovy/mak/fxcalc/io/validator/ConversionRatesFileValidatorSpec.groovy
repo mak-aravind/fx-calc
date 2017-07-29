@@ -1,12 +1,13 @@
-package mak.fxcalc.io.reader
+package mak.fxcalc.io.validator
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_CONVERSION_RATE_PATTERN
-import static mak.fxcalc.app.config.TestFileConfig.VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
 
+import mak.fxcalc.io.reader.InputReader
 import mak.fxcalc.io.validator.UserInputFileValidator
 
-import static mak.fxcalc.app.config.TestFileConfig.INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
+import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
 
 import spock.lang.Specification
 
@@ -72,7 +73,7 @@ class ConversionRatesFileValidatorSpec extends Specification{
 		given:
 			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME)
+			def result = validator.getValidatedInputLines(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME)
 		then:
 			result.size() == 10
 	}
@@ -82,6 +83,15 @@ class ConversionRatesFileValidatorSpec extends Specification{
 			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
 		when:
 			def result = validator.getValidatedInputLines(INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME)
+		then:
+			result == EMPTY_LIST
+	}
+	
+	def "dealing with a non existing file"(){
+		given:
+			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
+		when:
+			def result = validator.getValidatedInputLines("doesnotexist")
 		then:
 			result == EMPTY_LIST
 	}

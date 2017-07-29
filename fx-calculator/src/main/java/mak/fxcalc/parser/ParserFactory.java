@@ -3,7 +3,7 @@ package mak.fxcalc.parser;
 import static mak.fxcalc.app.config.FileInputReaderConfig.CSV_STRIPPING_PATTERN;
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_CONVERSION_RATE_PATTERN;
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_DECIMAL_PLACES_PATTERN;
-import static mak.fxcalc.parser.ParserConfig.*;
+import static mak.fxcalc.app.config.ParserConfig.*;
 
 import java.util.HashMap;
 import java.util.Map;

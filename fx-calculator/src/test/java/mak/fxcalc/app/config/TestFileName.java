@@ -1,10 +1,10 @@
 package mak.fxcalc.app.config;
 
-public class TestFileConfig {
+public class TestFileName {
 	/*private File(){
 	throw new AssertionError();//Big Bang when instantiated from inside class(locally)
 }*/
-	public TestFileConfig(){}
+	public TestFileName(){}
 	public static final String EMPTY_TEST_FILE_NAME="empty.test.data";
 	
 	public static final String VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME="currencyRates.valid.test.data";

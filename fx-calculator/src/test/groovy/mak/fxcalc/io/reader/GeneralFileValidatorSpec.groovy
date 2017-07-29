@@ -4,7 +4,7 @@ import java.util.regex.Pattern
 
 import mak.fxcalc.io.validator.UserInputFileValidator
 
-import static mak.fxcalc.app.config.TestFileConfig.EMPTY_TEST_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.EMPTY_TEST_FILE_NAME
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_CONVERSION_RATE_PATTERN
 import spock.lang.Specification
