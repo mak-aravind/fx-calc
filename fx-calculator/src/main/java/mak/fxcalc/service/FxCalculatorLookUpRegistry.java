@@ -1,13 +1,13 @@
-package mak.fxcalc.registry;
+package mak.fxcalc.service;
 
 import java.util.List;
 
 import mak.fxcalc.cache.FileContentsCache;
-import mak.fxcalc.lookup.CurrencyDecimalLookUp;
-import mak.fxcalc.lookup.CurrencyIndexLookUp;
-import mak.fxcalc.lookup.ILookUp;
+import mak.fxcalc.util.lookup.CurrencyDecimalLookUp;
+import mak.fxcalc.util.lookup.CurrencyIndexLookUp;
+import mak.fxcalc.util.lookup.ILookUp;
 
-public class FxCalculatorLookUpRegistry {
+class FxCalculatorLookUpRegistry {
 	private final ILookUp currencyIndexLookUp;
 	private final ILookUp currencyDecimalLookUp;
 	private FxCalculatorLookUpRegistry(CurrencyDecimalLookUp currencyDecimalLookUp, 

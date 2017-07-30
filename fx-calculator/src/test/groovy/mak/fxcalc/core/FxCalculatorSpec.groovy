@@ -12,7 +12,7 @@ import mak.fxcalc.cache.FileConfig
 import mak.fxcalc.cache.FileContentsCache
 import mak.fxcalc.cache.FilePatterns
 import mak.fxcalc.service.RegistryServiceProvider
-import mak.fxcalc.service.ServiceNotAvailableException
+import mak.fxcalc.service.EmptyRegistryException
 import spock.lang.Specification
 class FxCalculatorSpec extends Specification{
 	
@@ -27,7 +27,7 @@ class FxCalculatorSpec extends Specification{
 			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		expect:
-			true == fxCalculator.switchOn()
+			true == fxCalculator.switchedOn()
 	}
 	
 	def "when an invalid command is given to calculator it should return Invalid Command"(String inputCurrencyConversionCommand){

@@ -9,7 +9,6 @@ import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_RATES_TEST_DATA_
 import mak.fxcalc.cache.FileConfig;
 import mak.fxcalc.cache.FileContentsCache;
 import mak.fxcalc.cache.FilePatterns;
-import mak.fxcalc.service.RegistryServiceProvider;
 
 public class RegistryTestConfig {
 	

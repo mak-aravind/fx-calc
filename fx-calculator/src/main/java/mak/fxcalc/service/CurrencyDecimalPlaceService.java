@@ -1,7 +1,6 @@
 package mak.fxcalc.service;
 
-import mak.fxcalc.lookup.ILookUp;
-import mak.fxcalc.registry.FxCalculatorRegistry;
+import mak.fxcalc.util.lookup.ILookUp;
 
 public class CurrencyDecimalPlaceService{
 	final ILookUp currencyDecimalLookUp;

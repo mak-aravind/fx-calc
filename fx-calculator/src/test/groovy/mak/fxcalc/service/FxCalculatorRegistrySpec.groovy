@@ -1,4 +1,4 @@
-package mak.fxcalc.registry
+package mak.fxcalc.service
 
 import static mak.fxcalc.app.main.FileName.VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME
 import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME
@@ -6,21 +6,24 @@ import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_RATES_MAIN_DATA_FILE_N
 import static mak.fxcalc.registry.RegistryTestConfig.FILE_CONTENTS_CACHE
 
 import mak.fxcalc.cache.FileContentsCache
-import mak.fxcalc.lookup.CurrencyDecimalLookUp
-import mak.fxcalc.lookup.CurrencyIndexLookUp
-import mak.fxcalc.registry.FxCalculatorLookUpRegistry
-import mak.fxcalc.registry.FxCalculatorRegistry
-import mak.fxcalc.table.ConversionRateFeedTable
-import mak.fxcalc.table.CrossCurrencyTable
+import mak.fxcalc.registry.RegistryTestConfig
+import mak.fxcalc.service.FxCalculatorLookUpRegistry
+import mak.fxcalc.service.FxCalculatorRegistry
+import mak.fxcalc.service.RegistryServiceProvider
+import mak.fxcalc.util.lookup.CurrencyDecimalLookUp
+import mak.fxcalc.util.lookup.CurrencyIndexLookUp
+import mak.fxcalc.util.table.ConversionRateFeedTable
+import mak.fxcalc.util.table.CrossCurrencyTable
 import spock.lang.Specification
 
 class FxCalculatorRegistrySpec extends Specification{
 
-	def FxCalculatorRegistry fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(FILE_CONTENTS_CACHE)
+	def FxCalculatorRegistry fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(FILE_CONTENTS_CACHE);
 	def FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = fxCalculatorRegistry.getFxCalculatorLookUpRegistry();
 	
 	def "For particular currency the table CurrencyIndexLookUp should return the expected index"(String currency, int expectedIndex){
 		given:
+
 			def CurrencyIndexLookUp currencyIndexLookUp = fxCalculatorLookUpRegistry.getCurrencyIndexLookUp();
 		expect:
 			currencyIndexLookUp.getValue(currency) == expectedIndex
@@ -70,21 +73,6 @@ class FxCalculatorRegistrySpec extends Specification{
 			"EURNOK"		|8.6651
 			"NOKEUR"		|0.1154
 			"USDAUD"		|1.1946
-	}
-	
-	def "For a given row and column index it should return expected value"(String baseCurrency, String termCurrency, String found){
-		given:
-			def CrossCurrencyTable crossCurrencyTable = fxCalculatorRegistry.getCrossCurrencyTable();
-			def CurrencyIndexLookUp currencyIndexLookUp = fxCalculatorLookUpRegistry.getCurrencyIndexLookUp();
-			def row = currencyIndexLookUp.getValue(baseCurrency);
-			def column = currencyIndexLookUp.getValue(termCurrency);
-		expect:
-			crossCurrencyTable.lookUpCrossViaMatrix(row,column) == found
-		where:
-			baseCurrency|termCurrency	|found
-			"AUD"		|"USD"			|"DDD"
-			"USD"		|"EUR"			|"INV"
-			"DKK"		|"NOK"			|"EUR"
 	}
 }
 

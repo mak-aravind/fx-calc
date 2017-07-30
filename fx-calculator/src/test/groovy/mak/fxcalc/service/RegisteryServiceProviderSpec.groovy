@@ -3,7 +3,8 @@ package mak.fxcalc.service
 import mak.fxcalc.cache.FileConfig
 import mak.fxcalc.cache.FileContentsCache
 import mak.fxcalc.cache.FilePatterns
-import mak.fxcalc.service.ServiceNotAvailableException
+import mak.fxcalc.service.EmptyRegistryException
+import mak.fxcalc.service.RegistryServiceProvider
 import spock.lang.Specification
 
 import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
@@ -27,7 +28,7 @@ class RegisteryServiceProviderSpec extends Specification{
 		when:
 			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 		then:
-			thrown ServiceNotAvailableException
+			thrown EmptyRegistryException
 	}
 	
 	def "File Config with ALL valid file contents should not have empty data"(){

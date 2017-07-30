@@ -1,8 +1,7 @@
 package mak.fxcalc.service;
 
-import mak.fxcalc.registry.FxCalculatorRegistry;
-import mak.fxcalc.table.ConversionRateFeedTable;
-import mak.fxcalc.table.CrossCurrencyTable;
+import mak.fxcalc.util.table.ConversionRateFeedTable;
+import mak.fxcalc.util.table.CrossCurrencyTable;
 public class ConversionRateService{
 
 	private final ConversionRateFeedTable conversionRateFeedTable;

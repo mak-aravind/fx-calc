@@ -18,7 +18,7 @@ public class FxCalculator {
 		 this.registryServiceProvider =  registryServiceProvider;
 	}
 	
-	public boolean switchOn() {
+	public boolean switchedOn() {
 		return null != registryServiceProvider || !registryServiceProvider.isEmptyData();
 	}
 	
@@ -45,12 +45,11 @@ public class FxCalculator {
 	private String getResult(){
 		CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
-		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency)){
+		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency))
 			appendConvertedValue(result);
-		}
-		else{
+		else
 			appendUnavailability(result);
-		}
+		
 		return result.toString();
 	}
 
@@ -71,7 +70,6 @@ public class FxCalculator {
 		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
 		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
 		final Float amount = Float.valueOf(userCommand.getAmount().trim()).floatValue();
-		//final Float amount = Float.parseFloat(String.format(decimalPlaceFormatter, userCommand.getAmount()));
 		final Float convertedValue = calculateConversion(amount);
 		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
 	}

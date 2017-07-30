@@ -1,4 +1,4 @@
-package mak.fxcalc.lookup;
+package mak.fxcalc.util.lookup;
 
 import static mak.fxcalc.app.config.ParserConfig.CURRENCY_DECIMAL_LOOK_UP_PARSER;
 

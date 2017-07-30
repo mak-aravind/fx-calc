@@ -1,13 +1,13 @@
-package mak.fxcalc.table;
+package mak.fxcalc.util.table;
 
 import static mak.fxcalc.app.config.ParserConfig.CROSS_CURRENCY_TABLE_PARSER;
 
 import java.util.List;
 
-import mak.fxcalc.lookup.ILookUp;
 import mak.fxcalc.parser.IParser;
 import mak.fxcalc.parser.ParserFactory;
 import mak.fxcalc.util.ParsedObject;
+import mak.fxcalc.util.lookup.ILookUp;
 
 public class CrossCurrencyTable{
 	private final ILookUp currencyIndexLookUp;

@@ -2,15 +2,11 @@ package mak.fxcalc.service
 
 import mak.fxcalc.cache.FileContentsCache
 import mak.fxcalc.cache.FilePatterns
-import mak.fxcalc.registry.FxCalculatorLookUpRegistry
-import mak.fxcalc.registry.FxCalculatorRegistry
-import mak.fxcalc.lookup.CurrencyDecimalLookUp
-import mak.fxcalc.lookup.CurrencyIndexLookUp
 import mak.fxcalc.service.ConversionRateService
 import mak.fxcalc.service.CurrencyIndexLookUpService
+import mak.fxcalc.service.FxCalculatorLookUpRegistry
+import mak.fxcalc.service.FxCalculatorRegistry
 import mak.fxcalc.service.RegistryServiceProvider
-import mak.fxcalc.table.ConversionRateFeedTable
-import mak.fxcalc.table.CrossCurrencyTable
 import spock.lang.Specification
 import static mak.fxcalc.registry.RegistryTestConfig.FILE_CONTENTS_CACHE
 class CurrencyIndexLoopUpServiceSpec extends Specification{

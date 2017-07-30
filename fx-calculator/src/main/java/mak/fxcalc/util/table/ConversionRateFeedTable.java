@@ -1,4 +1,4 @@
-package mak.fxcalc.table;
+package mak.fxcalc.util.table;
 
 import static mak.fxcalc.app.config.ParserConfig.CONVERSION_RATE_FEED_TABLE_PARSER;
 

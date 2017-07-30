@@ -1,12 +1,12 @@
-package mak.fxcalc.registry;
+package mak.fxcalc.service;
 
 
 import java.util.List;
 
 import mak.fxcalc.cache.FileContentsCache;
-import mak.fxcalc.lookup.ILookUp;
-import mak.fxcalc.table.ConversionRateFeedTable;
-import mak.fxcalc.table.CrossCurrencyTable;
+import mak.fxcalc.util.lookup.ILookUp;
+import mak.fxcalc.util.table.ConversionRateFeedTable;
+import mak.fxcalc.util.table.CrossCurrencyTable;
 
 public class FxCalculatorRegistry {
 	private final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry;
