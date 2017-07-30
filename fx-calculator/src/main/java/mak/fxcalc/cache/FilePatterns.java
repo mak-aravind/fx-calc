@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 public class FilePatterns{
 
-	final Map<String, Pattern> patternsMappedToFileName=new HashMap<>();
-	final FileConfig fileConfig;
+	private final Map<String, Pattern> patternsMappedToFileName=new HashMap<>();
+	private final FileConfig fileConfig;
 	public FilePatterns(FileConfig fileConfig){
 		this.fileConfig = fileConfig;
 		patternsMappedToFileName.put(this.fileConfig.getCrossCurrencyMatrixFileName(), CROSS_CURRENCY_EACH_LINE_PATTERN);
@@ -26,6 +26,4 @@ public class FilePatterns{
 	public FileConfig getFileConfig() {
 		return fileConfig;
 	}
-	
-	
 }

@@ -19,7 +19,7 @@ public class FxCalculator {
 	}
 	
 	public boolean switchedOn() {
-		return null != registryServiceProvider || !registryServiceProvider.isEmptyData();
+		return (null != registryServiceProvider) || (!registryServiceProvider.isEmptyData());
 	}
 	
 	public String processCommand(final String command) {
@@ -43,7 +43,7 @@ public class FxCalculator {
 	}
 
 	private String getResult(){
-		CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
+		final CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
 		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency))
 			appendConvertedValue(result);
@@ -76,7 +76,7 @@ public class FxCalculator {
 
 	private float calculateConversion(final Float amount) {
 		final ConversionRateService conversionRateService = registryServiceProvider.getConversionRateService();
-		return baseCurrency.equals(termCurrency) ? amount : 
-							amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);
+		return baseCurrency.equals(termCurrency) ? amount :
+				amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);
 	}
 }

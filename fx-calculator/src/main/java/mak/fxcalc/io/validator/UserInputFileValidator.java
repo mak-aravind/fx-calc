@@ -2,14 +2,14 @@ package mak.fxcalc.io.validator;
 
 
 
+import static java.util.Collections.emptyList;
+
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-import static java.util.Collections.emptyList;
 
 import mak.fxcalc.io.reader.IReader;
 import mak.fxcalc.io.reader.InputReader;

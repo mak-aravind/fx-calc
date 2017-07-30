@@ -7,7 +7,9 @@ import static mak.fxcalc.app.config.TestFileName.VALID_CROSS_CURRENCY_MATRIX_TES
 import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
 import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
 
+import mak.fxcalc.service.EmptyRegistryException
 import mak.fxcalc.service.FxCalculatorRegistry
+import mak.fxcalc.service.RegistryServiceProvider
 import spock.lang.Specification
 
 class FileContentsCacheSpec extends Specification{
@@ -44,9 +46,10 @@ class FileContentsCacheSpec extends Specification{
 			
 			def FilePatterns filePatterns = new FilePatterns(invalidFileConfig);
 			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def FxCalculatorRegistry fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(fileContentsCache)
-		expect:
-			null == fxCalculatorRegistry
+		when:
+			def RegistryServiceProvider registeryServiceProvider = new RegistryServiceProvider(fileContentsCache);
+		then:
+			thrown EmptyRegistryException
 	}
 	
 	def "File Config with ALL valid file contents should build a non-null FxCalculatorRegistry"(){
@@ -57,9 +60,9 @@ class FileContentsCacheSpec extends Specification{
 			
 			def FilePatterns filePatterns = new FilePatterns(validFileConfig);
 			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def FxCalculatorRegistry fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(fileContentsCache)
-		expect:
-			null != fxCalculatorRegistry
-			false == fxCalculatorRegistry.isEmptyRegistry()
+		when:
+			def RegistryServiceProvider registeryServiceProvider = new RegistryServiceProvider(fileContentsCache);
+		then:
+			false == registeryServiceProvider.isEmptyData()
 	}
 }

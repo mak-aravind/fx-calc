@@ -15,7 +15,6 @@ import mak.fxcalc.service.RegistryServiceProvider;
 public class FxCalculatorUserInteractor {
 	private final FxCalculator fxCalculator;
 	public FxCalculatorUserInteractor() {
-		
 		final FileConfig fileConfig = new FileConfig(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME,
 													VALID_CROSS_CURRENCY_MAIN_MATRIX_DATA_FILE_NAME,
 													VALID_CURRENCY_DECIMAL_MAIN_PLACES_DATA_FILE_NAME);
@@ -32,10 +31,15 @@ public class FxCalculatorUserInteractor {
 			userInteractor.printUserInstructions();
 			userInteractor.interpretCommands();
 		}else{
-			System.out.println("Invalid or Corrupted files");
+			userInteractor.reportMalFormedFiles();
 			userInteractor.switchOff();
 		}
 	}
+	
+	private void reportMalFormedFiles() {
+		System.out.println("Cannot process with a mal-formed file/files");
+	}
+	
 	private void printUserInstructions() {
 		System.out.println("\n\n\t\t\t\t======FX CALCULATOR=====");
 		System.out.println("\nEnter commands in format <BASE-CURRENCY> <AMOUNT> IN <TERM-CURRENCY>.");
@@ -58,7 +62,7 @@ public class FxCalculatorUserInteractor {
 		try {
 			registryServiceProvider = new RegistryServiceProvider(fileContentsCache);
 		} catch (EmptyRegistryException e) {
-			System.out.println("Cannot process with a mal-formed file/files");
+			reportMalFormedFiles();
 			switchOff();
 		}
 		return registryServiceProvider;

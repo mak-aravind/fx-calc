@@ -15,25 +15,27 @@ class FxCalculatorLookUpRegistry {
 		this.currencyDecimalLookUp = currencyDecimalLookUp;
 		this.currencyIndexLookUp = currencyIndexLookUp;
 	}
-	public ILookUp getCurrencyIndexLookUp() {
+	ILookUp getCurrencyIndexLookUp() {
 		return this.currencyIndexLookUp;
 	}
-	public ILookUp getCurrencyDecimalLookUp() {
+	ILookUp getCurrencyDecimalLookUp() {
 		return this.currencyDecimalLookUp;
 	}
 	
-	public static FxCalculatorLookUpRegistry buildFxCalculatorLookUpRegistry(FileContentsCache fileContentsCache) {
-		final String currencyDecimalPlacesFileName = fileContentsCache.getFilePatterns()
-																	  .getFileConfig()
-																	  .getCurrencyDecimalPlacesFileName();
-		
-		final List<String> currencyDecimalPlacesList = fileContentsCache
-				.getCachedFileContentsAsList(currencyDecimalPlacesFileName);
-		final CurrencyDecimalLookUp currencyDecimalLookUp = CurrencyDecimalLookUp
-				.createCurrencyDecimalLookUp(currencyDecimalPlacesList);
+	static FxCalculatorLookUpRegistry buildFxCalculatorLookUpRegistry(FileContentsCache fileContentsCache) {
+		final CurrencyDecimalLookUp currencyDecimalLookUp = buildCurrencyDecimalLookUp(fileContentsCache);
 		if (null == currencyDecimalLookUp)
 			return null;
 		
+		final CurrencyIndexLookUp currencyIndexLookup = buildCurrencyIndexLookUp(fileContentsCache);
+		if (null == currencyIndexLookup)
+			return null;
+		
+		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = new FxCalculatorLookUpRegistry(
+				currencyDecimalLookUp, currencyIndexLookup);
+		return fxCalculatorLookUpRegistry;
+	}
+	private static CurrencyIndexLookUp buildCurrencyIndexLookUp(FileContentsCache fileContentsCache) {
 		final String crossCurrencyMatrixFileName = fileContentsCache.getFilePatterns()
 				  											  		.getFileConfig()
 				  											  		.getCrossCurrencyMatrixFileName();
@@ -42,11 +44,17 @@ class FxCalculatorLookUpRegistry {
 				.getCachedFileContentsAsList(crossCurrencyMatrixFileName);
 		final CurrencyIndexLookUp currencyIndexLookup = CurrencyIndexLookUp
 				.createCurrencyIndexLookup(crossCurrencyMatrixList);
-		if (null == currencyIndexLookup)
-			return null;
+		return currencyIndexLookup;
+	}
+	private static CurrencyDecimalLookUp buildCurrencyDecimalLookUp(FileContentsCache fileContentsCache) {
+		final String currencyDecimalPlacesFileName = fileContentsCache.getFilePatterns()
+																	  .getFileConfig()
+																	  .getCurrencyDecimalPlacesFileName();
 		
-		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = new FxCalculatorLookUpRegistry(
-				currencyDecimalLookUp, currencyIndexLookup);
-		return fxCalculatorLookUpRegistry;
+		final List<String> currencyDecimalPlacesList = fileContentsCache
+				.getCachedFileContentsAsList(currencyDecimalPlacesFileName);
+		final CurrencyDecimalLookUp currencyDecimalLookUp = CurrencyDecimalLookUp
+				.createCurrencyDecimalLookUp(currencyDecimalPlacesList);
+		return currencyDecimalLookUp;
 	}
 }

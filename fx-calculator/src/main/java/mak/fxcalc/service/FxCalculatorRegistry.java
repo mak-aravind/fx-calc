@@ -8,7 +8,7 @@ import mak.fxcalc.util.lookup.ILookUp;
 import mak.fxcalc.util.table.ConversionRateFeedTable;
 import mak.fxcalc.util.table.CrossCurrencyTable;
 
-public class FxCalculatorRegistry {
+class FxCalculatorRegistry {
 	private final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry;
 	private final CrossCurrencyTable crossCurrencyTable;
 	private final ConversionRateFeedTable conversionRateFeedTable;
@@ -21,23 +21,23 @@ public class FxCalculatorRegistry {
 		this.emptyRegistry = getStatus(this.fxCalculatorLookUpRegistry, this.crossCurrencyTable, this.conversionRateFeedTable);
 	}
 
-	public FxCalculatorLookUpRegistry getFxCalculatorLookUpRegistry() {
+	FxCalculatorLookUpRegistry getFxCalculatorLookUpRegistry() {
 		return fxCalculatorLookUpRegistry;
 	}
 
-	public CrossCurrencyTable getCrossCurrencyTable() {
+	CrossCurrencyTable getCrossCurrencyTable() {
 		return crossCurrencyTable;
 	}
 
-	public ConversionRateFeedTable getConversionRateFeedTable() {
+	ConversionRateFeedTable getConversionRateFeedTable() {
 		return conversionRateFeedTable;
 	}
 
-	public boolean isEmptyRegistry() {
+	boolean isEmptyRegistry() {
 		return emptyRegistry;
 	}
 
-	public static FxCalculatorRegistry buildFxCalculatorRegistry(FileContentsCache fileContentsCache) {
+	static FxCalculatorRegistry buildFxCalculatorRegistry(FileContentsCache fileContentsCache) {
 		if (null == fileContentsCache|| fileContentsCache.isEmpty()) return null;
 		
 		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = buildLookUpRegistry(fileContentsCache);
