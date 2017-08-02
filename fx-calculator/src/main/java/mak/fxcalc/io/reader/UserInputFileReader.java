@@ -24,7 +24,7 @@ public class UserInputFileReader implements IDefaultUserInputReader{
 		try {
 			inputReader = DefaultFileUtil.getInputStreamReader(input);
 		} catch (FileNotFoundException e) {
-				System.out.println("File not found Please rerun with valid file name.");
+				System.out.println("File not found please rerun with valid file name.");
 				return null;
 		}
 		return inputReader;
