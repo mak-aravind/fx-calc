@@ -1,9 +1,9 @@
-package mak.fxcalc.io.reader;
+package mak.fxcalc.io.validator;
 
 import java.io.Reader;
 import java.util.List;
 
-public interface IReader {
+public interface IValidator {
 	public List<String> getValidatedInputLines();
 	public void setReader(Reader fileReader);
 }

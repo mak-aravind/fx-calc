@@ -1,4 +1,4 @@
-package mak.fxcalc.io.reader;
+package mak.fxcalc.io.validator;
 
 
 
@@ -12,20 +12,22 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class InputReader implements IReader{
+public class InputValidator implements IValidator{
 	
 	private Reader input;
 	
 	final private Pattern pattern;
 
-	public InputReader(Pattern pattern) {
+	public InputValidator(Pattern pattern) {
 		this.pattern = pattern;
 	}
 	
+	@Override
 	public void setReader(Reader fileReader) {
 		this.input = fileReader;
 	}
 	
+	@Override
 	public List<String> getValidatedInputLines(){
 		try (Stream<String> lineStream = new BufferedReader(input).lines()){
 			final String[] linesAsArray = lineStream.toArray(String[]::new);

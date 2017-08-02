@@ -2,7 +2,7 @@ package mak.fxcalc.parser
 
 import java.util.List
 
-import mak.fxcalc.io.reader.InputReader
+import mak.fxcalc.io.validator.InputValidator
 import mak.fxcalc.parser.CurrencyIndexLookUpParser
 import spock.lang.Specification
 
@@ -11,13 +11,13 @@ import static mak.fxcalc.app.config.FileInputReaderConfig.CROSS_CURRENCY_EACH_LI
 import static mak.fxcalc.app.config.FileInputReaderConfig.CSV_STRIPPING_PATTERN
 
 class CurrencyIndexLookUpParserSpec extends Specification{
-	def inputReader = new InputReader(CROSS_CURRENCY_EACH_LINE_PATTERN)
+	def inputValidator = new InputValidator(CROSS_CURRENCY_EACH_LINE_PATTERN)
 	def CurrencyIndexLookUpParser = new CurrencyIndexLookUpParser(CSV_STRIPPING_PATTERN);
 	def "Line with 11 entries should return empty map"(String crossCurrencyLine,Map result){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
-			inputReader.setReader(stringReader)
-			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputReader.getValidatedInputLines())
+			inputValidator.setReader(stringReader)
+			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputValidator.getValidatedInputLines())
 		expect:
 			result == parsedObject.getTableData()
 		where:
@@ -28,8 +28,8 @@ class CurrencyIndexLookUpParserSpec extends Specification{
 	def "Line with 12 entries should return map"(String crossCurrencyLine,int size){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
-			inputReader.setReader(stringReader)
-			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputReader.getValidatedInputLines())
+			inputValidator.setReader(stringReader)
+			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputValidator.getValidatedInputLines())
 			def result = parsedObject.getTableData();
 		expect:
 			result.size() == size
@@ -41,8 +41,8 @@ class CurrencyIndexLookUpParserSpec extends Specification{
 	def "Line with 12 entries and for key CZK should return 4"(String crossCurrencyLine,String key,int value){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
-			inputReader.setReader(stringReader)
-			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputReader.getValidatedInputLines())
+			inputValidator.setReader(stringReader)
+			def parsedObject = CurrencyIndexLookUpParser.parseValidatedLines(inputValidator.getValidatedInputLines())
 			def result = parsedObject.getTableData()
 		expect:
 			result.get(key) == value

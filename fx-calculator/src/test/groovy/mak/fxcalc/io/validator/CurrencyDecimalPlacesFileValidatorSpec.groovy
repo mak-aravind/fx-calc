@@ -3,25 +3,28 @@ package mak.fxcalc.io.validator
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_DECIMAL_PLACES_PATTERN
 import static mak.fxcalc.app.config.TestFileName.VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
-import static mak.fxcalc.cache.FileConfig.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
+import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME
 import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME
+
 
 import java.util.List
 
-import mak.fxcalc.io.reader.InputReader
-import mak.fxcalc.io.validator.UserInputFileValidator
+import mak.fxcalc.io.reader.IDefaultUserInputReader
+import mak.fxcalc.io.reader.UserInputFileReader
+import mak.fxcalc.io.validator.InputValidator
 import spock.lang.Specification
 
 class CurrencyDecimalPlacesFileValidatorSpec extends Specification{
 	
-	def inputReader = new InputReader(CURRENCY_DECIMAL_PLACES_PATTERN)
+	def inputValidator = new InputValidator(CURRENCY_DECIMAL_PLACES_PATTERN)
+	def IDefaultUserInputReader fileReader = new UserInputFileReader(CURRENCY_DECIMAL_PLACES_PATTERN)
 	
 	def "Each line should have three characters to left side of ="(String currencyDecimalPlacesLine,List result){
 		given:
 			def stringReader = new StringReader(currencyDecimalPlacesLine)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyDecimalPlacesLine	|result
 			"AD=2"						|EMPTY_LIST
@@ -31,9 +34,9 @@ class CurrencyDecimalPlacesFileValidatorSpec extends Specification{
 	def "Each line should have equal sign after three characters"(String currencyDecimalPlacesLine,List result){
 		given:
 			def stringReader = new StringReader(currencyDecimalPlacesLine)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyDecimalPlacesLine	|result
 			"AUD2"						|EMPTY_LIST
@@ -43,9 +46,9 @@ class CurrencyDecimalPlacesFileValidatorSpec extends Specification{
 	def "Each line should have int value to right side of equal sign"(String currencyDecimalPlacesLine,List result){
 		given:
 			def stringReader = new StringReader(currencyDecimalPlacesLine)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyDecimalPlacesLine	|result
 			"GBP="						|EMPTY_LIST
@@ -54,19 +57,15 @@ class CurrencyDecimalPlacesFileValidatorSpec extends Specification{
 	}
 	
 	def "File with 11 lines of valid entries should return list of size 11"(){
-		given:
-			def validator = new UserInputFileValidator(CURRENCY_DECIMAL_PLACES_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
 		then:
 			result.size() == 11
 	}
 	
 	def "File with 11 lines. 11 valid entries and 3 invalid entry should return empty list"(){
-		given:
-			def validator = new UserInputFileValidator(CURRENCY_DECIMAL_PLACES_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
 		then:
 			result == EMPTY_LIST
 	}

@@ -51,45 +51,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="6" language="java" name="mak.fxcalc.io.validator.IUserInputValidator" project="fx-calculator" 
-    file="/fx-calculator/src/main/java/mak/fxcalc/io/validator/IUserInputValidator.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="594" y="-1480"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="7" language="java" name="mak.fxcalc.io.validator.UserInputFileValidator" project="fx-calculator" 
-    file="/fx-calculator/src/main/java/mak/fxcalc/io/validator/UserInputFileValidator.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="900" y="-1650"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="8" language="java" name="mak.fxcalc.io.reader.IReader" project="fx-calculator" 
-    file="/fx-calculator/src/main/java/mak/fxcalc/io/reader/IReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="576" y="-1817"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="9" language="java" name="mak.fxcalc.io.reader.InputReader" project="fx-calculator" 
-    file="/fx-calculator/src/main/java/mak/fxcalc/io/reader/InputReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="920" y="-1816"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="mak.fxcalc.parser.ConversionRateFeedTableParser" project="fx-calculator" 
+  <class id="6" language="java" name="mak.fxcalc.parser.ConversionRateFeedTableParser" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/parser/ConversionRateFeedTableParser.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-427" y="429"/>    
@@ -99,7 +61,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="mak.fxcalc.parser.CrossCurrencyTableParser" project="fx-calculator" 
+  <class id="7" language="java" name="mak.fxcalc.parser.CrossCurrencyTableParser" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/parser/CrossCurrencyTableParser.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-322" y="599"/>    
@@ -109,7 +71,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="mak.fxcalc.parser.CurrencyIndexLookUpParser" project="fx-calculator" 
+  <class id="8" language="java" name="mak.fxcalc.parser.CurrencyIndexLookUpParser" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/parser/CurrencyIndexLookUpParser.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="151" y="605"/>    
@@ -119,7 +81,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="mak.fxcalc.util.ParsedObject" project="fx-calculator" 
+  <class id="9" language="java" name="mak.fxcalc.util.ParsedObject" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/util/ParsedObject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-397" y="277"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -128,7 +90,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="mak.fxcalc.parser.ParserFactory" project="fx-calculator" 
+  <class id="10" language="java" name="mak.fxcalc.parser.ParserFactory" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/parser/ParserFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="448" y="278"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -137,7 +99,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="15" language="java" name="mak.fxcalc.parser.IParser" project="fx-calculator" 
+  <interface id="11" language="java" name="mak.fxcalc.parser.IParser" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/parser/IParser.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-2" y="275"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -146,7 +108,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="16" language="java" name="mak.fxcalc.util.lookup.ILookUp" project="fx-calculator" 
+  <interface id="12" language="java" name="mak.fxcalc.util.lookup.ILookUp" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/util/lookup/ILookUp.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-324" y="-153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -155,17 +117,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="17" language="java" name="mak.fxcalc.io.validator.UserInputCommandValidator" project="fx-calculator" 
-    file="/fx-calculator/src/main/java/mak/fxcalc/io/validator/UserInputCommandValidator.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="292" y="-1667"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="mak.fxcalc.app.main.FxCalculatorUserInteractor" project="fx-calculator" 
+  <class id="13" language="java" name="mak.fxcalc.app.main.FxCalculatorUserInteractor" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/app/main/FxCalculatorUserInteractor.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="119" y="-1488"/>    
@@ -175,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="mak.fxcalc.core.FxCalculator" project="fx-calculator" 
+  <class id="14" language="java" name="mak.fxcalc.core.FxCalculator" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/core/FxCalculator.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="114" y="-1182"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -184,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="mak.fxcalc.service.RegistryServiceProvider" project="fx-calculator" 
+  <class id="15" language="java" name="mak.fxcalc.service.RegistryServiceProvider" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/RegistryServiceProvider.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="121" y="-862"/>    
@@ -194,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="mak.fxcalc.core.UserCommand" project="fx-calculator" 
+  <class id="16" language="java" name="mak.fxcalc.core.UserCommand" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/core/UserCommand.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="590" y="-1187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -203,7 +155,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="mak.fxcalc.cache.FileContentsCache" project="fx-calculator" 
+  <class id="17" language="java" name="mak.fxcalc.cache.FileContentsCache" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/cache/FileContentsCache.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-254" y="-881"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -212,7 +164,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="mak.fxcalc.service.FxCalculatorRegistry" project="fx-calculator" 
+  <class id="18" language="java" name="mak.fxcalc.service.FxCalculatorRegistry" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/FxCalculatorRegistry.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="788" y="-859"/>    
@@ -222,7 +174,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="mak.fxcalc.cache.FilePatterns" project="fx-calculator" 
+  <class id="19" language="java" name="mak.fxcalc.cache.FilePatterns" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/cache/FilePatterns.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-665" y="-879"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -231,7 +183,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="mak.fxcalc.cache.FileConfig" project="fx-calculator" 
+  <class id="20" language="java" name="mak.fxcalc.cache.FileConfig" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/cache/FileConfig.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-659" y="-1149"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -240,7 +192,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="mak.fxcalc.service.ConversionRateService" project="fx-calculator" 
+  <class id="21" language="java" name="mak.fxcalc.service.ConversionRateService" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/ConversionRateService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="9" y="-474"/>    
@@ -250,7 +202,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="mak.fxcalc.service.CurrencyDecimalPlaceService" project="fx-calculator" 
+  <class id="22" language="java" name="mak.fxcalc.service.CurrencyDecimalPlaceService" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/CurrencyDecimalPlaceService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-606" y="-461"/>    
@@ -260,7 +212,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="mak.fxcalc.service.CurrencyIndexLookUpService" project="fx-calculator" 
+  <class id="23" language="java" name="mak.fxcalc.service.CurrencyIndexLookUpService" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/CurrencyIndexLookUpService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-276" y="-461"/>    
@@ -270,7 +222,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="mak.fxcalc.service.FxCalculatorLookUpRegistry" project="fx-calculator" 
+  <class id="24" language="java" name="mak.fxcalc.service.FxCalculatorLookUpRegistry" project="fx-calculator" 
     file="/fx-calculator/src/main/java/mak/fxcalc/service/FxCalculatorLookUpRegistry.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="942" y="-40"/>    
@@ -280,310 +232,356 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="30">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="31" name="currencyDecimalLookUp">        
-        <position height="16" width="131" x="-543" y="-249"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
-        <position height="14" width="23" x="-394" y="-249"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="34" name="currencyIndexLookUpService">        
+  <interface id="25" language="java" name="mak.fxcalc.io.reader.IDefaultUserInputReader" project="fx-calculator" 
+    file="/fx-calculator/src/main/java/mak/fxcalc/io/reader/IDefaultUserInputReader.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="994" y="-1188"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="mak.fxcalc.io.reader.UserInputFileReader" project="fx-calculator" 
+    file="/fx-calculator/src/main/java/mak/fxcalc/io/reader/UserInputFileReader.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="734" y="-1425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="mak.fxcalc.io.reader.UserInputCommandReader" project="fx-calculator" 
+    file="/fx-calculator/src/main/java/mak/fxcalc/io/reader/UserInputCommandReader.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1231" y="-1419"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="mak.fxcalc.io.validator.InputValidator" project="fx-calculator" 
+    file="/fx-calculator/src/main/java/mak/fxcalc/io/validator/InputValidator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="603" y="-1603"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="29" language="java" name="mak.fxcalc.io.validator.IValidator" project="fx-calculator" 
+    file="/fx-calculator/src/main/java/mak/fxcalc/io/validator/IValidator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="999" y="-1603"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="30">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="31">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="32" name="conversionRateService">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="37" name="userCommand">        
-        <position height="0" width="0" x="470" y="326"/>      
-      </attribute>      
-      <multiplicity id="38" minimum="0" maximum="1">        
-        <position height="0" width="0" x="470" y="326"/>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="39">    
+  <association id="34">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="40" name="registryServiceProvider">        
-        <position height="0" width="0" x="8" y="-27"/>      
+      <attribute id="35" name="fileConfig">        
+        <position height="0" width="0" x="-1501" y="311"/>      
       </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="0" width="0" x="8" y="-27"/>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-1501" y="311"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="43" name="userInputCommandValidator"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="45">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="46">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="47" name="currencyIndexLookUp">        
-        <position height="16" width="117" x="98" y="-137"/>      
+  <association id="37">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="38" name="userCommand">        
+        <position height="0" width="0" x="470" y="326"/>      
       </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
-        <position height="14" width="23" x="115" y="-114"/>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="470" y="326"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="50" name="fxCalculatorLookUpRegistry">        
+  <association id="40">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="41" name="currencyIndexLookUpService">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="51" minimum="0" maximum="1">        
+      <multiplicity id="42" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="53" name="fxCalculatorRegistry">        
-        <position height="0" width="0" x="-503" y="-164"/>      
-      </attribute>      
-      <multiplicity id="54" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-503" y="-164"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="56" name="conversionRateFeedTable">        
-        <position height="0" width="0" x="-149" y="29"/>      
+  <association id="43">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="44" name="conversionRateFeedTable">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="57" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-149" y="29"/>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="58">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="59" name="commandReader">        
-        <position height="16" width="92" x="335" y="-1756"/>      
-      </attribute>      
-      <multiplicity id="60" minimum="0" maximum="1">        
-        <position height="14" width="23" x="446" y="-1740"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="62" name="currencyIndexLookUp">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="63" minimum="0" maximum="1">        
-        <position height="14" width="23" x="291" y="-89"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="64">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <realization id="65">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <realization id="66">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="67">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="68" name="crossCurrencyTable">        
-        <position height="0" width="0" x="23" y="-81"/>      
-      </attribute>      
-      <multiplicity id="69" minimum="0" maximum="1">        
-        <position height="0" width="0" x="23" y="-81"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="70">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <association id="71">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="72" name="currencyDecimalPlaceService">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="73" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="74">    
+  <association id="46">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="75" name="filePatterns">        
-        <position height="0" width="0" x="-1508" y="315"/>      
+      <attribute id="47" name="currencyDecimalLookUp">        
+        <position height="16" width="131" x="-543" y="-249"/>      
       </attribute>      
-      <multiplicity id="76" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-1508" y="315"/>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="14" width="23" x="-394" y="-249"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="77">    
+  <realization id="49">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="50">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="51" name="currencyIndexLookUp">        
+        <position height="16" width="117" x="98" y="-137"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="14" width="23" x="115" y="-114"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="55">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="16"/>  
+    <end type="TARGET" refId="12"/>  
   </realization>  
-  <association id="78">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="79" name="conversionRateService">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="56">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="57" name="filePatterns">        
+        <position height="0" width="0" x="-1508" y="315"/>      
       </attribute>      
-      <multiplicity id="80" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="81">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="82" name="conversionRateFeedTable">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="83" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="85" name="fileReader">        
-        <position height="16" width="57" x="677" y="-1733"/>      
-      </attribute>      
-      <multiplicity id="86" minimum="0" maximum="1">        
-        <position height="14" width="23" x="760" y="-1739"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="87">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <association id="88">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="89" name="currencyDecimalLookUp">        
-        <position height="16" width="129" x="260" y="-63"/>      
-      </attribute>      
-      <multiplicity id="90" minimum="0" maximum="1">        
-        <position height="14" width="23" x="-163" y="-184"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="91">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <association id="92">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="93" name="fxCalculator">        
-        <position height="0" width="0" x="1" y="5"/>      
-      </attribute>      
-      <multiplicity id="94" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1" y="5"/>      
+      <multiplicity id="58" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-1508" y="315"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="95">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="96" name="currencyIndexLookUp">        
+  <association id="59">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="60" name="currencyIndexLookUp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="14" width="23" x="291" y="-89"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="63" name="crossCurrencyTable">        
+        <position height="0" width="0" x="23" y="-81"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="23" y="-81"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="65">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="66">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="67">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="68" name="parsersList">        
+        <position height="0" width="0" x="-826" y="-169"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-826" y="-169"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="71" name="currencyIndexLookUp">        
         <position height="16" width="117" x="-412" y="-385"/>      
       </attribute>      
-      <multiplicity id="97" minimum="0" maximum="1">        
+      <multiplicity id="72" minimum="0" maximum="1">        
         <position height="14" width="23" x="-278" y="-387"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="98">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="99" name="fileConfig">        
-        <position height="0" width="0" x="-1501" y="311"/>      
-      </attribute>      
-      <multiplicity id="100" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-1501" y="311"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="101">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <association id="102">    
+  <association id="73">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="103" name="parsersList">        
-        <position height="0" width="0" x="-826" y="-169"/>      
+      <attribute id="74" name="registryServiceProvider">        
+        <position height="0" width="0" x="8" y="-27"/>      
       </attribute>      
-      <multiplicity id="104" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-826" y="-169"/>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="8" y="-27"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="105">    
+  <association id="76">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="77" name="currencyDecimalLookUp">        
+        <position height="16" width="129" x="260" y="-63"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="1">        
+        <position height="14" width="23" x="-163" y="-184"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="106" name="crossCurrencyTable">        
+      <attribute id="80" name="fileValidator">        
+        <position height="16" width="62" x="821" y="-1545"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="83" name="crossCurrencyTable">        
         <position height="16" width="108" x="398" y="-353"/>      
       </attribute>      
-      <multiplicity id="107" minimum="0" maximum="1">        
+      <multiplicity id="84" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="86" name="conversionRateFeedTable">        
+        <position height="0" width="0" x="-149" y="29"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-149" y="29"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="89" name="fxCalculator">        
+        <position height="0" width="0" x="1" y="5"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1" y="5"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="92" name="fxCalculatorLookUpRegistry">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="93" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="94">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="95">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="96" name="currencyDecimalPlaceService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="97" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="99" name="userInputCommandReader"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="102" name="fxCalculatorRegistry">        
+        <position height="0" width="0" x="-503" y="-164"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-503" y="-164"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="104">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="105">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="106" name="commandValidator"/>      
+      <multiplicity id="107" minimum="0" maximum="1">        
+        <position height="14" width="23" x="1089" y="-1549"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

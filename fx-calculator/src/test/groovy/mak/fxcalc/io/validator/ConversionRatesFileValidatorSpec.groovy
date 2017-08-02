@@ -3,8 +3,10 @@ package mak.fxcalc.io.validator
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CURRENCY_CONVERSION_RATE_PATTERN
 
-import mak.fxcalc.io.reader.InputReader
-import mak.fxcalc.io.validator.UserInputFileValidator
+import mak.fxcalc.io.reader.IDefaultUserInputReader
+import mak.fxcalc.io.reader.UserInputFileReader
+import mak.fxcalc.io.validator.IValidator
+import mak.fxcalc.io.validator.InputValidator
 
 import static mak.fxcalc.app.config.TestFileName.INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME
 import static mak.fxcalc.app.main.FileName.VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME
@@ -13,14 +15,15 @@ import spock.lang.Specification
 
 
 class ConversionRatesFileValidatorSpec extends Specification{
-	def inputReader = new InputReader(CURRENCY_CONVERSION_RATE_PATTERN)
+	def IValidator inputValidator = new InputValidator(CURRENCY_CONVERSION_RATE_PATTERN)
+	IDefaultUserInputReader fileReader = new UserInputFileReader(CURRENCY_CONVERSION_RATE_PATTERN)
 	
 	def "Single line should only have six alphabets to left side of equal sign"(String currencyConversionRate,List result){
 		given:
 			def stringReader = new StringReader(currencyConversionRate)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyConversionRate	|result
 			"1UDUSD=0.8371"	   	  	|EMPTY_LIST
@@ -33,9 +36,9 @@ class ConversionRatesFileValidatorSpec extends Specification{
 	def "Single line should start with six alphabets followed by equal sign"(String currencyConversionRate,List result){
 		given:
 			def stringReader = new StringReader(currencyConversionRate)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyConversionRate		|result
 			"AUDUSD==0.8371"	   	  	|EMPTY_LIST
@@ -47,9 +50,9 @@ class ConversionRatesFileValidatorSpec extends Specification{
 	def "Single line should only have floating point number to right side of equal sign"(String currencyConversionRate,List result){
 		given:
 			def stringReader = new StringReader(currencyConversionRate)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyConversionRate	|result
 			"AUDUSD=8371"	   	  	|EMPTY_LIST
@@ -59,9 +62,9 @@ class ConversionRatesFileValidatorSpec extends Specification{
 	def "Single line if it contains lowercase char it has to CAPATALIZE"(String currencyConversionRate,List result){
 		given:
 			def stringReader = new StringReader(currencyConversionRate)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			currencyConversionRate	|result
 			"aUDUSD=0.8371"			|["AUDUSD=0.8371"]
@@ -70,28 +73,22 @@ class ConversionRatesFileValidatorSpec extends Specification{
 	}
 	
 	def "File with 10 lines of valid entries should return list of size 10"(){
-		given:
-			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME)
 		then:
 			result.size() == 10
 	}
 	
 	def "File with 10 lines. 7 valid entries and 3 invalid entries should return empty list"(){
-		given:
-			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME)
 		then:
 			result == EMPTY_LIST
 	}
 	
 	def "dealing with a non existing file"(){
-		given:
-			def validator = new UserInputFileValidator(CURRENCY_CONVERSION_RATE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines("doesnotexist")
+			def result = fileReader.getValidatedInputLines("doesnotexist")
 		then:
 			result == EMPTY_LIST
 	}

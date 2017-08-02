@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import mak.fxcalc.io.validator.IUserInputValidator;
-import mak.fxcalc.io.validator.UserInputCommandValidator;
+import mak.fxcalc.io.reader.IDefaultUserInputReader;
+import mak.fxcalc.io.reader.UserInputCommandReader;
 
 public class UserCommand {
 	private final String command;
@@ -16,11 +16,11 @@ public class UserCommand {
 	private String amount;
 	private String outputToDisplay;
 	
-	final IUserInputValidator userInputCommandValidator = new UserInputCommandValidator(INPUT_COMMAND_PATTERN);
+	final IDefaultUserInputReader userInputCommandReader = new UserInputCommandReader(INPUT_COMMAND_PATTERN);
 
 	public UserCommand(final String command) throws InvalidCommandException, IOException {
 		this.command = command;
-		List<String> validatedInputLines = userInputCommandValidator.getValidatedInputLines(this.command);
+		List<String> validatedInputLines = userInputCommandReader.getValidatedInputLines(this.command);
 		if (validatedInputLines.isEmpty()) 
 			throw new InvalidCommandException();
 		setKeyAttributes(validatedInputLines.get(0));
@@ -62,11 +62,11 @@ public class UserCommand {
 		return formattedOutputToDisplay.toString();
 	}
 
-	private static String getBaseCurrency(final Matcher matcher) {
+	private String getBaseCurrency(final Matcher matcher) {
 		return matcher.group(1) + matcher.group(2) + matcher.group(3);
 	}
 
-	private static String getTermCurrency(final Matcher matcher) {
+	private String getTermCurrency(final Matcher matcher) {
 		return matcher.group(9) + matcher.group(10) + matcher.group(11);
 	}
 }

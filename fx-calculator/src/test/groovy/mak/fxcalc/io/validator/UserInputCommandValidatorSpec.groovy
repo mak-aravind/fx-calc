@@ -2,7 +2,8 @@ package mak.fxcalc.io.validator
 
 import java.util.List
 
-import mak.fxcalc.io.validator.UserInputCommandValidator
+import mak.fxcalc.io.reader.IDefaultUserInputReader
+import mak.fxcalc.io.reader.UserInputCommandReader
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.CommandInputReaderConfig.INPUT_COMMAND_PATTERN
@@ -12,11 +13,11 @@ import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_D
 import spock.lang.Specification
 
 class UserInputCommandValidatorSpec extends Specification{
-	def inputReader = new UserInputCommandValidator(INPUT_COMMAND_PATTERN)
+	def IDefaultUserInputReader commandReader = new UserInputCommandReader(INPUT_COMMAND_PATTERN)
 	
 	def "Empty command should return empty list"(String inputCurrencyConversionCommand,List result){
 		expect:
-			inputReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
+			commandReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
 		where:
 			inputCurrencyConversionCommand	|result
 			""								|EMPTY_LIST
@@ -26,7 +27,7 @@ class UserInputCommandValidatorSpec extends Specification{
 	
 	def "Command should be start with three character"(String inputCurrencyConversionCommand,List result){
 		expect:
-			inputReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
+			commandReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
 		where:
 			inputCurrencyConversionCommand	|result
 			"UD 100.00 in USD"				|EMPTY_LIST
@@ -37,7 +38,7 @@ class UserInputCommandValidatorSpec extends Specification{
 	
 	def "After base currency(3 characters) an int or float value is allowed as amount"(String inputCurrencyConversionCommand,List result){
 		expect:
-			inputReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
+			commandReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
 		where:
 			inputCurrencyConversionCommand	|result
 			"AUD OOO in USD"				|EMPTY_LIST
@@ -50,7 +51,7 @@ class UserInputCommandValidatorSpec extends Specification{
 	
 	def "After amount the term currency(3 characters) should be preceded by word - in "(String inputCurrencyConversionCommand,List result){
 		expect:
-			inputReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
+			commandReader.getValidatedInputLines(inputCurrencyConversionCommand) == result
 		where:
 			inputCurrencyConversionCommand	|result
 			"AUD 100.00 USD"				|EMPTY_LIST
@@ -63,10 +64,10 @@ class UserInputCommandValidatorSpec extends Specification{
 	
 	def "Except IOException thrown during validating should return an empty list"(){
 		given:
-			UserInputCommandValidator mockedValidator = Mock()
-			mockedValidator.getValidatedInputLines("JPY 100 in USD") >> {throw new IOException()}
+			commandReader = Mock()
+			commandReader.getValidatedInputLines("JPY 100 in USD") >> {throw new IOException()}
 		when:
-			mockedValidator.getValidatedInputLines("JPY 100 in USD")
+			commandReader.getValidatedInputLines("JPY 100 in USD")
 		then:
 			thrown IOException
 	}

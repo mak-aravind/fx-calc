@@ -2,8 +2,9 @@ package mak.fxcalc.io.validator
 
 import java.util.List
 
-import mak.fxcalc.io.reader.InputReader
-import mak.fxcalc.io.validator.UserInputFileValidator
+import mak.fxcalc.io.reader.IDefaultUserInputReader
+import mak.fxcalc.io.reader.UserInputFileReader
+import mak.fxcalc.io.validator.InputValidator
 
 import static java.util.Collections.EMPTY_LIST
 import static mak.fxcalc.app.config.FileInputReaderConfig.CROSS_CURRENCY_EACH_LINE_PATTERN
@@ -13,14 +14,15 @@ import static mak.fxcalc.app.config.TestFileName.INVALID_CROSS_CURRENCY_MATRIX_D
 import spock.lang.Specification
 
 class CrossCurrencyMatrixFileValidatorSpec extends Specification{
-	def inputReader = new InputReader(CROSS_CURRENCY_EACH_LINE_PATTERN)
+	def inputValidator = new InputValidator(CROSS_CURRENCY_EACH_LINE_PATTERN)
+	def IDefaultUserInputReader fileReader = new UserInputFileReader(CROSS_CURRENCY_EACH_LINE_PATTERN)
 	
 	def "Each value should be a three character"(String crossCurrencyLine,List result){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			crossCurrencyLine									|result
 			"XXX,AUD,CAD,CNY,CZK,DK,E,GBP,JPY,NOK,NZD,USD"		|EMPTY_LIST
@@ -31,9 +33,9 @@ class CrossCurrencyMatrixFileValidatorSpec extends Specification{
 	def "Single line should have 12 comma seperated values"(String crossCurrencyLine,List result){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
-			inputReader.setReader(stringReader)
+			inputValidator.setReader(stringReader)
 		expect:
-			inputReader.getValidatedInputLines() == result
+			inputValidator.getValidatedInputLines() == result
 		where:
 			crossCurrencyLine									|result
 			"XXX,AUD,CNY,CZK,DKK,EUR,GBP,JPY,NOK,NZD,USD" 		|EMPTY_LIST
@@ -43,19 +45,15 @@ class CrossCurrencyMatrixFileValidatorSpec extends Specification{
 	}
 	
 	def "File with 12 lines of valid entries should return list of size 12"(){
-		given:
-			def validator = new UserInputFileValidator(CROSS_CURRENCY_EACH_LINE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME)
 		then:
 			result.size() == 12
 	}
 	
 	def "File with 12 lines. 11 valid entries and 3 invalid entry should return empty list"(){
-		given:
-			def validator = new UserInputFileValidator(CROSS_CURRENCY_EACH_LINE_PATTERN);
 		when:
-			def result = validator.getValidatedInputLines(INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME)
+			def result = fileReader.getValidatedInputLines(INVALID_CROSS_CURRENCY_MATRIX_DATA_FILE_NAME)
 		then:
 			result == EMPTY_LIST
 	}
