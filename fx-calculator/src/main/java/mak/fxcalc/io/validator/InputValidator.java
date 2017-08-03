@@ -29,8 +29,7 @@ public class InputValidator implements IValidator{
 	
 	@Override
 	public List<String> getValidatedInputLines(){
-		try (Stream<String> lineStream = new BufferedReader(input).lines()){
-			final String[] linesAsArray = lineStream.toArray(String[]::new);
+			final String[] linesAsArray = new BufferedReader(input).lines().toArray(String[]::new);
 			final Supplier<Stream<String>> streamSupplier = () -> Stream.of(linesAsArray);
 		    final Predicate <String> validLine = line -> isValid(line);
 			if (streamSupplier.get().allMatch(validLine)){
@@ -39,14 +38,11 @@ public class InputValidator implements IValidator{
 															  		  .map(line->line.toUpperCase())
 															  		  .collect(Collectors.toList());
 				return validatedInputLines;
-			}else{
-				return Collections.emptyList();
 			}
-		}
+			return Collections.emptyList();
 	}
 	public boolean isValid(final String line){
-        return this.pattern
-        			.matcher(line)
-        			.matches();
+        return this.pattern.matcher(line)
+        				   .matches();
     }
 }
