@@ -24,5 +24,4 @@ public class UserInputCommandReader implements IDefaultUserInputReader {
 	public IValidator getValidator() {
 		return this.commandValidator;
 	}
-
 }

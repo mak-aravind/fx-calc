@@ -29,18 +29,23 @@ public class InputValidator implements IValidator{
 	
 	@Override
 	public List<String> getValidatedInputLines(){
-			final String[] linesAsArray = new BufferedReader(input).lines().toArray(String[]::new);
+			final String[] linesAsArray = new BufferedReader(input).lines()
+																   .toArray(String[]::new);
+			
 			final Supplier<Stream<String>> streamSupplier = () -> Stream.of(linesAsArray);
 		    final Predicate <String> validLine = line -> isValid(line);
-			if (streamSupplier.get().allMatch(validLine)){
+			
+		    if (streamSupplier.get().allMatch(validLine)){
 				final List<String> validatedInputLines= streamSupplier.get()
 																	  .map(line->line.trim())
 															  		  .map(line->line.toUpperCase())
 															  		  .collect(Collectors.toList());
 				return validatedInputLines;
 			}
-			return Collections.emptyList();
+			
+		    return Collections.emptyList();
 	}
+	
 	public boolean isValid(final String line){
         return this.pattern.matcher(line)
         				   .matches();

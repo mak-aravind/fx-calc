@@ -15,13 +15,12 @@ public interface IDefaultUserInputReader {
 	
 	default public List<String> getValidatedInputLines(final String fileOrCommand) throws IOException {
 		if (fileOrCommand == null || fileOrCommand.isEmpty()) return emptyList();
-		List<String> validatedInputLines = emptyList();
 		try(final Reader inputReader = getUserInputReader(fileOrCommand)){
 			if (null == inputReader)
 				return emptyList();
 			getValidator().setReader(inputReader);
-			validatedInputLines = getValidator().getValidatedInputLines();
+			final List<String> validatedInputLines = getValidator().getValidatedInputLines();
+			return validatedInputLines.isEmpty() ? Collections.emptyList() : validatedInputLines;
 		}
-		return validatedInputLines.isEmpty() ?  Collections.emptyList() : validatedInputLines;
 	}
 }
