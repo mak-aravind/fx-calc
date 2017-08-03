@@ -24,11 +24,8 @@ public class CurrencyDecimalLookUpParser implements IParser<Map<String, Integer>
 		    Matcher matcher = currencyDecimalPlacesPattern.matcher(line);
 		    if (matcher.find())
 		    {
-		        final String currencyChar1=matcher.group(1);
-		        final String currencyChar2=matcher.group(2);
-		        final String currencyChar3=matcher.group(3);
-		        final String decimalPlaces=matcher.group(5);
-		        final String currency = currencyChar1+currencyChar2+currencyChar3;
+		    	final String currency = getParsedTermCurrency(matcher);
+		    	final String decimalPlaces=matcher.group(5);
 		        currencyDecimalLookUpMap.put(currency,Integer.parseInt(decimalPlaces));
 		    }else{
 		    	return emptyParsedObject;
@@ -36,5 +33,12 @@ public class CurrencyDecimalLookUpParser implements IParser<Map<String, Integer>
 		  }
 		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(currencyDecimalLookUpMap);
 		return parsedObject;
+	}
+	
+	private String getParsedTermCurrency(final Matcher matcher){
+        final String currencyChar1=matcher.group(1);
+        final String currencyChar2=matcher.group(2);
+        final String currencyChar3=matcher.group(3);
+        return currencyChar1+currencyChar2+currencyChar3;
 	}
 }

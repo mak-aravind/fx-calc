@@ -48,8 +48,8 @@ public class FxCalculatorUserInteractor {
 	}
 
 	private void interpretCommands() {
-		try (final Scanner scanner = new Scanner(System.in)) {
-			while (true) {
+		try(final Scanner scanner = new Scanner(System.in)){
+			while(true) {
 				final String command = scanner.nextLine();
 				final String result = fxCalculator.processCommand(command);
 				System.out.println(result + "\n");
@@ -59,9 +59,9 @@ public class FxCalculatorUserInteractor {
 	
 	private RegistryServiceProvider createRegistryServiceProvider(final FileContentsCache fileContentsCache) {
 		RegistryServiceProvider registryServiceProvider = null;
-		try {
+		try{
 			registryServiceProvider = new RegistryServiceProvider(fileContentsCache);
-		} catch (EmptyRegistryException e) {
+		}catch (EmptyRegistryException e){
 			reportMalFormedFiles();
 			switchOff();
 		}
