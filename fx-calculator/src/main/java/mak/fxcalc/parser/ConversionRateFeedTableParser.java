@@ -27,11 +27,11 @@ public class ConversionRateFeedTableParser implements IParser<Map<String, Float>
 		        final String baseCurrency = getParsedBaseCurrency(matcher);
 		        final String termsCurrency = getParsedTermCurrency(matcher);
 		        final String baseTermCurrenciesComboKey = baseCurrency + termsCurrency;
-		        final String currenciesInvertedComboKey = termsCurrency + baseCurrency;
+		        final String invertedCurrenciesComboKey = termsCurrency + baseCurrency;
 		        final Float conversionRate=Float.parseFloat(matcher.group(8));
 		        final Float invertedConverionRate = Math.round ((1F/conversionRate) * 10000.0f) / 10000.0f;
 		        conversionRateFeedLookUpMap.put(baseTermCurrenciesComboKey, conversionRate);
-		        conversionRateFeedLookUpMap.put(currenciesInvertedComboKey, invertedConverionRate);
+		        conversionRateFeedLookUpMap.put(invertedCurrenciesComboKey, invertedConverionRate);
 		    }else{
 		    	return emptyParsedObject;
 		    }
