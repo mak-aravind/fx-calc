@@ -20,7 +20,7 @@ public class FxCalculator {
 	}
 	
 	public boolean switchedOn() {
-		return (null != registryServiceProvider) || (!registryServiceProvider.isEmptyData());
+		return (null != this.registryServiceProvider) || (!this.registryServiceProvider.isEmptyData());
 	}
 	
 	public String processCommand(final String command) {
@@ -37,16 +37,16 @@ public class FxCalculator {
 	
 	private String getResult(UserCommand userCommandToProcess) {
 		this.userCommand = userCommandToProcess;
-		this.baseCurrency = userCommandToProcess.getBaseCurrency();
-		this.termCurrency = userCommandToProcess.getTermCurrency();
-		this.amount = userCommandToProcess.getAmount();
+		this.baseCurrency = this.userCommand.getBaseCurrency();
+		this.termCurrency = this.userCommand.getTermCurrency();
+		this.amount = this.userCommand.getAmount();
 		return resultServiced();
 	}
 
 	private String resultServiced(){
-		final CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
+		final CurrencyIndexLookUpService currencyIndexLookUpService = this.registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
-		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency))
+		if(currencyIndexLookUpService.hasValidCurrencies(this.baseCurrency,this.termCurrency))
 			appendConvertedValue(result);
 		else
 			appendUnavailability(result);
@@ -61,22 +61,22 @@ public class FxCalculator {
 
 	private void appendUnavailability(final StringBuilder result) {
 		result.append("Unable to find rate for ");
-		result.append(baseCurrency);
+		result.append(this.baseCurrency);
 		result.append("/");
-		result.append(termCurrency);
+		result.append(this.termCurrency);
 	}
 	
 	private Float getConvertedValue() {
-		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
-		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
+		final CurrencyDecimalPlaceService currencyDecimalPlaceService = this.registryServiceProvider.getCurrencyDecimalPlaceService();
+		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(this.termCurrency);
 		final Float amount = Float.valueOf(this.amount.trim()).floatValue();
 		final Float convertedValue = conversionServiced(amount);
 		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
 	}
 
 	private float conversionServiced(final Float amount) {
-		final ConversionRateService conversionRateService = registryServiceProvider.getConversionRateService();
-		return baseCurrency.equals(termCurrency) ? amount :
-				amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);
+		final ConversionRateService conversionRateService = this.registryServiceProvider.getConversionRateService();
+		return this.baseCurrency.equals(this.termCurrency) ? amount :
+				amount * conversionRateService.getConversionRate(this.baseCurrency, this.termCurrency);
 	}
 }

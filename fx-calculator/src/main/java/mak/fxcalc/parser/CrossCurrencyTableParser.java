@@ -20,7 +20,7 @@ public class CrossCurrencyTableParser implements IParser<String[][]>{
 		int i=0;
 		for (String line : validatedInputLines) {
 			int j=0;
-			final List<String> entriesInLine = Arrays.asList(csvStrippingPattern.split(line));
+			final List<String> entriesInLine = Arrays.asList(this.csvStrippingPattern.split(line));
 			for (String entry : entriesInLine) {
 				crossCurrencyMatrix[i][j++] = entry;
 			}

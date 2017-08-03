@@ -15,9 +15,9 @@ public class FilePatterns{
 	public FilePatterns(FileConfig fileConfig){
 		this.fileConfig = fileConfig;
 		this.patternsMappedToFileName = new HashMap<>();
-		patternsMappedToFileName.put(this.fileConfig.getCrossCurrencyMatrixFileName(), CROSS_CURRENCY_EACH_LINE_PATTERN);
-		patternsMappedToFileName.put(this.fileConfig.getCurrencyDecimalPlacesFileName(), CURRENCY_DECIMAL_PLACES_PATTERN);
-		patternsMappedToFileName.put(this.fileConfig.getCurrencyRatesFileName(), CURRENCY_CONVERSION_RATE_PATTERN);
+		this.patternsMappedToFileName.put(this.fileConfig.getCrossCurrencyMatrixFileName(), CROSS_CURRENCY_EACH_LINE_PATTERN);
+		this.patternsMappedToFileName.put(this.fileConfig.getCurrencyDecimalPlacesFileName(), CURRENCY_DECIMAL_PLACES_PATTERN);
+		this.patternsMappedToFileName.put(this.fileConfig.getCurrencyRatesFileName(), CURRENCY_CONVERSION_RATE_PATTERN);
 	}
 
 	public Map<String, Pattern> getPatternsMappedToFileName() {

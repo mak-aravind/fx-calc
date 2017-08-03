@@ -21,7 +21,7 @@ public class ConversionRateFeedTableParser implements IParser<Map<String, Float>
 		if (validatedInputLines==null || validatedInputLines.isEmpty()) return emptyParsedObject;
 		final Map<String, Float> conversionRateFeedLookUpMap = new HashMap<>();
 		for (String line : validatedInputLines) {
-		    final Matcher matcher = currencyConversionRatePattern.matcher(line);
+		    final Matcher matcher = this.currencyConversionRatePattern.matcher(line);
 		    if (matcher.find())
 		    {
 		        final String baseCurrency = getParsedBaseCurrency(matcher);

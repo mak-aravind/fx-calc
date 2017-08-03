@@ -51,7 +51,7 @@ public class FxCalculatorUserInteractor {
 		try(final Scanner scanner = new Scanner(System.in)){
 			while(true) {
 				final String command = scanner.nextLine();
-				final String result = fxCalculator.processCommand(command);
+				final String result = this.fxCalculator.processCommand(command);
 				System.out.println(result + "\n");
 			}
 		} 

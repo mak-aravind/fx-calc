@@ -25,10 +25,10 @@ public class CurrencyDecimalLookUp implements ILookUp{
 	
 	@Override
 	public Integer getValue(String currency){
-		return currencyDecimalLookUpMap.get(currency);
+		return this.currencyDecimalLookUpMap.get(currency);
 	}
 	@Override
 	public Boolean contains(String currency) {
-		return currencyDecimalLookUpMap.containsKey(currency);
+		return this.currencyDecimalLookUpMap.containsKey(currency);
 	}
 }

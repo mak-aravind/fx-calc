@@ -21,7 +21,7 @@ public class CurrencyDecimalLookUpParser implements IParser<Map<String, Integer>
 		if (validatedInputLines==null || validatedInputLines.isEmpty()) return emptyParsedObject;
 		Map<String,Integer> currencyDecimalLookUpMap= new HashMap<>();
 		for (String line : validatedInputLines) {
-		    Matcher matcher = currencyDecimalPlacesPattern.matcher(line);
+		    Matcher matcher = this.currencyDecimalPlacesPattern.matcher(line);
 		    if (matcher.find())
 		    {
 		    	final String currency = getParsedTermCurrency(matcher);

@@ -15,14 +15,14 @@ public class FileConfig {
 	}
 	
 	public String getCurrencyRatesFileName() {
-		return currencyRatesFileName;
+		return this.currencyRatesFileName;
 	}
 
 	public String getCrossCurrencyMatrixFileName() {
-		return crossCurrencyMatrixFileName;
+		return this.crossCurrencyMatrixFileName;
 	}
 
 	public String getCurrencyDecimalPlacesFileName() {
-		return currencyDecimalPlacesFileName;
+		return this.currencyDecimalPlacesFileName;
 	}
 }

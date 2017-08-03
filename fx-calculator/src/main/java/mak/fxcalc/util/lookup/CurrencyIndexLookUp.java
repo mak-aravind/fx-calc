@@ -28,7 +28,7 @@ public class CurrencyIndexLookUp implements ILookUp{
 	}
 	@Override
 	public Boolean contains(String currency) {
-		return currencyIndexLookUpMap.containsKey(currency);
+		return this.currencyIndexLookUpMap.containsKey(currency);
 		
 	}
 }

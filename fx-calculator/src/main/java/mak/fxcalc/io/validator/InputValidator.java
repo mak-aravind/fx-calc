@@ -30,8 +30,7 @@ public class InputValidator implements IValidator{
 	@Override
 	public List<String> getValidatedInputLines(){
 		final Predicate <String> validLine = line -> isValid(line);
-		
-		final String[] linesAsArray = new BufferedReader(input).lines()
+		final String[] linesAsArray = new BufferedReader(this.input).lines()
 															   .toArray(String[]::new);
 		final Supplier<Stream<String>> streamSupplier = () -> Stream.of(linesAsArray);
 		if (streamSupplier.get().allMatch(validLine)){

@@ -26,14 +26,14 @@ public class CrossCurrencyTable{
 	}
 
 	public String getIntermediateCurrency(final String baseCurrency, final String termCurrency) {
-		final int rowIndex = currencyIndexLookUp.getValue(baseCurrency);
-		final int columnIndex = currencyIndexLookUp.getValue(termCurrency);
+		final int rowIndex = this.currencyIndexLookUp.getValue(baseCurrency);
+		final int columnIndex = this.currencyIndexLookUp.getValue(termCurrency);
 		final String intermediateCurrency = lookUpCrossViaMatrix(rowIndex, columnIndex);
 		return intermediateCurrency;
 	}
 	
 	
 	private String lookUpCrossViaMatrix(final int row, final int column){
-		return crossCurrencyMatrix[row][column];
+		return this.crossCurrencyMatrix[row][column];
 	}
 }

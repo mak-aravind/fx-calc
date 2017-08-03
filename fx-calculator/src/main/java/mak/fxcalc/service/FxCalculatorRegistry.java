@@ -22,19 +22,19 @@ class FxCalculatorRegistry {
 	}
 
 	FxCalculatorLookUpRegistry getFxCalculatorLookUpRegistry() {
-		return fxCalculatorLookUpRegistry;
+		return this.fxCalculatorLookUpRegistry;
 	}
 
 	CrossCurrencyTable getCrossCurrencyTable() {
-		return crossCurrencyTable;
+		return this.crossCurrencyTable;
 	}
 
 	ConversionRateFeedTable getConversionRateFeedTable() {
-		return conversionRateFeedTable;
+		return this.conversionRateFeedTable;
 	}
 
 	boolean isEmptyRegistry() {
-		return emptyRegistry;
+		return this.emptyRegistry;
 	}
 
 	static FxCalculatorRegistry buildFxCalculatorRegistry(FileContentsCache fileContentsCache) {

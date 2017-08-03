@@ -25,7 +25,7 @@ public class CurrencyIndexLookUpParser implements IParser<Map<String, Integer>>{
 		}
 		final Map<String,Integer> currencyIndexMap= new HashMap<>();
 		String firstLineListOfCurrencies = validatedInputLines.get(FIRST_LINE);
-		List<String> currenciesToIndex  = Arrays.asList(csvStrippingPattern.split(firstLineListOfCurrencies));
+		List<String> currenciesToIndex  = Arrays.asList(this.csvStrippingPattern.split(firstLineListOfCurrencies));
 		indexAllCurrencies(currencyIndexMap, currenciesToIndex);
 		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(Collections.unmodifiableMap(currencyIndexMap));
 		return parsedObject;

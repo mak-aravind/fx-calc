@@ -24,7 +24,7 @@ public class FileContentsCache {
 		this.empty = loadFileContents();
 	}
 	public FilePatterns getFilePatterns() {
-		return filePatterns;
+		return this.filePatterns;
 	}
 	
 	public boolean isEmpty(){
@@ -36,7 +36,7 @@ public class FileContentsCache {
 	}
 	
 	private boolean loadFileContents(){
-		final List<String> listOfFileName = new ArrayList<String>(patternsMappedToFileName.keySet());
+		final List<String> listOfFileName = new ArrayList<String>(this.patternsMappedToFileName.keySet());
 		for (String fileName : listOfFileName) {
 			final List<String> validatedInputLines = getValidatedInputLines(fileName);
 			if (null == validatedInputLines || validatedInputLines.isEmpty()){
