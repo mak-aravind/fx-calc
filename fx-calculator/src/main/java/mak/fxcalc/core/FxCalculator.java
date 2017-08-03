@@ -12,6 +12,7 @@ public class FxCalculator {
 	private final RegistryServiceProvider registryServiceProvider;
 	private String baseCurrency;
 	private String termCurrency;
+	private String amount;
 	private UserCommand userCommand;
 	
 	public FxCalculator(RegistryServiceProvider registryServiceProvider) {
@@ -38,6 +39,7 @@ public class FxCalculator {
 		this.userCommand = userCommandToProcess;
 		this.baseCurrency = userCommandToProcess.getBaseCurrency();
 		this.termCurrency = userCommandToProcess.getTermCurrency();
+		this.amount = userCommandToProcess.getAmount();
 		return resultServiced();
 	}
 
@@ -67,7 +69,7 @@ public class FxCalculator {
 	private Float getConvertedValue() {
 		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
 		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
-		final Float amount = Float.valueOf(userCommand.getAmount().trim()).floatValue();
+		final Float amount = Float.valueOf(this.amount.trim()).floatValue();
 		final Float convertedValue = conversionServiced(amount);
 		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
 	}

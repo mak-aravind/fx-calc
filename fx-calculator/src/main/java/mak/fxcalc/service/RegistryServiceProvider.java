@@ -19,7 +19,7 @@ public class RegistryServiceProvider {
 	}
 	
 	public boolean isEmptyData() {
-		return this.fxCalculatorRegistry == null || this.fxCalculatorRegistry.isEmptyRegistry();
+		return null == this.fxCalculatorRegistry || this.fxCalculatorRegistry.isEmptyRegistry();
 	}
 
 	public ConversionRateService getConversionRateService() {
