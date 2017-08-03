@@ -31,7 +31,8 @@ public class InputValidator implements IValidator{
 	public List<String> getValidatedInputLines(){
 		final Predicate <String> validLine = line -> isValid(line);
 		final String[] linesAsArray = new BufferedReader(this.input).lines()
-															   .toArray(String[]::new);
+															   		.toArray(String[]::new);
+		
 		final Supplier<Stream<String>> streamSupplier = () -> Stream.of(linesAsArray);
 		if (streamSupplier.get().allMatch(validLine)){
 			final List<String> validatedInputLines= streamSupplier.get()
@@ -43,7 +44,7 @@ public class InputValidator implements IValidator{
 		return Collections.emptyList();
 	}
 	
-	public boolean isValid(final String line){
+	private boolean isValid(final String line){
         return this.pattern.matcher(line)
         				   .matches();
     }
