@@ -50,13 +50,12 @@ public class FileContentsCache {
 	private List<String> getValidatedInputLines(String fileName){
 		final Pattern pattern = patternsMappedToFileName.get(fileName);
 		final IDefaultUserInputReader userInputFileReader = new UserInputFileReader(pattern);
-		List<String> validatedInputLines;
 		try {
-			validatedInputLines = userInputFileReader.getValidatedInputLines(fileName);
+			final List<String> validatedInputLines = userInputFileReader.getValidatedInputLines(fileName);
+			return validatedInputLines;
 		} catch (IOException e) {
-			validatedInputLines = Collections.emptyList();
 			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
+			return Collections.emptyList();
 		} 
-		return validatedInputLines;
 	}
 }
