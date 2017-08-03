@@ -13,7 +13,7 @@ public class CurrencyIndexLookUpService{
 
 
 	
-	public boolean hasValidCurrencies(String baseCurrency, String termCurrency) {
-		return currencyIndexLookUp.contains(baseCurrency) && currencyIndexLookUp.contains(termCurrency);
+	public boolean hasValidCurrencies(final String baseCurrency, final String termCurrency) {
+		return this.currencyIndexLookUp.contains(baseCurrency) && this.currencyIndexLookUp.contains(termCurrency);
 	}
 }

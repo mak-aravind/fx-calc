@@ -32,7 +32,7 @@ public class FileContentsCache {
 	}
 	
 	public List<String> getCachedFileContentsAsList(String fileName){
-		return listCachedWithFileContents.get(fileName);
+		return this.listCachedWithFileContents.get(fileName);
 	}
 	
 	private boolean loadFileContents(){
@@ -42,17 +42,16 @@ public class FileContentsCache {
 			if (null == validatedInputLines || validatedInputLines.isEmpty()){
 					return true;
 			}
-			listCachedWithFileContents.put(fileName, validatedInputLines);
+			this.listCachedWithFileContents.put(fileName, validatedInputLines);
 		}
 		return false;
 	}
 
 	private List<String> getValidatedInputLines(String fileName){
-		final Pattern pattern = patternsMappedToFileName.get(fileName);
+		final Pattern pattern = this.patternsMappedToFileName.get(fileName);
 		final IDefaultUserInputReader userInputFileReader = new UserInputFileReader(pattern);
 		try {
-			final List<String> validatedInputLines = userInputFileReader.getValidatedInputLines(fileName);
-			return validatedInputLines;
+			return userInputFileReader.getValidatedInputLines(fileName);
 		} catch (IOException e) {
 			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
 			return Collections.emptyList();

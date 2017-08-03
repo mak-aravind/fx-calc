@@ -13,7 +13,7 @@ public class ConversionRateService{
 	}
 
 	public Float getConversionRate(final String baseCurrency, final String termCurrency) {
-		final String intermediateCurrency = crossCurrencyTable.getIntermediateCurrency(baseCurrency, termCurrency);
+		final String intermediateCurrency = this.crossCurrencyTable.getIntermediateCurrency(baseCurrency, termCurrency);
 		if (intermediateCurrency.equals("DDD") || intermediateCurrency.equals("INV")) {
 			return getConversionRateFromFeed(baseCurrency, termCurrency);
 		} else {
@@ -24,8 +24,8 @@ public class ConversionRateService{
 		}
 	}
 	
-	private Float getConversionRateFromFeed(String baseCurrency, String termCurrency) {
+	private Float getConversionRateFromFeed(final String baseCurrency, final String termCurrency) {
 		final String currenciesComboKey = baseCurrency + termCurrency;
-		return conversionRateFeedTable.getConversionRate(currenciesComboKey);
+		return this.conversionRateFeedTable.getConversionRate(currenciesComboKey);
 	}
 }

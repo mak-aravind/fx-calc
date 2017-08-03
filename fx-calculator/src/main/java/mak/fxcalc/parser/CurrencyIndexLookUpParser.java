@@ -19,16 +19,15 @@ public class CurrencyIndexLookUpParser implements IParser<Map<String, Integer>>{
 	}
 
 	@Override
-	public ParsedObject<Map<String, Integer>> parseValidatedLines(List<String> validatedInputLines) {
+	public ParsedObject<Map<String, Integer>> parseValidatedLines(final List<String> validatedInputLines) {
 		if (null == validatedInputLines || validatedInputLines.isEmpty()) {
-			final ParsedObject<Map<String, Integer>> emptyParsedObject = new ParsedObject<>(Collections.emptyMap());
-			return emptyParsedObject;
+			return new ParsedObject<>(Collections.emptyMap());
 		}
 		final Map<String,Integer> currencyIndexMap= new HashMap<>();
 		String firstLineListOfCurrencies = validatedInputLines.get(FIRST_LINE);
 		List<String> currenciesToIndex  = Arrays.asList(csvStrippingPattern.split(firstLineListOfCurrencies));
 		indexAllCurrencies(currencyIndexMap, currenciesToIndex);
-		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(currencyIndexMap);
+		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(Collections.unmodifiableMap(currencyIndexMap));
 		return parsedObject;
 	}
 

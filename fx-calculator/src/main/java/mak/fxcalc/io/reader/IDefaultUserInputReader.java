@@ -13,9 +13,9 @@ public interface IDefaultUserInputReader {
 	public Reader getUserInputReader(String input);
 	public IValidator getValidator();
 	
-	default public List<String> getValidatedInputLines(final String fileOrCommand) throws IOException {
-		if (fileOrCommand == null || fileOrCommand.isEmpty()) return emptyList();
-		try(final Reader inputReader = getUserInputReader(fileOrCommand)){
+	default public List<String> getValidatedInputLines(final String input) throws IOException {
+		if (input == null || input.isEmpty()) return emptyList();
+		try(final Reader inputReader = getUserInputReader(input)){
 			if (null == inputReader) return emptyList();
 			getValidator().setReader(inputReader);
 			final List<String> validatedInputLines = getValidator().getValidatedInputLines();

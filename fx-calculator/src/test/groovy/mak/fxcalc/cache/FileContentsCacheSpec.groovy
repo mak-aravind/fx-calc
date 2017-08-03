@@ -38,7 +38,7 @@ class FileContentsCacheSpec extends Specification{
 			false == fileContentsCache.isEmpty()
 	}
 	
-	def "File Config with ANY invalid file contents should create a null FxCalculatorRegistry"(){
+	def "File Config with ANY invalid file contents should create a empty FxCalculatorRegistry"(){
 		given:
 			def FileConfig invalidFileConfig = new FileConfig(INVALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
 																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
@@ -52,7 +52,7 @@ class FileContentsCacheSpec extends Specification{
 			thrown EmptyRegistryException
 	}
 	
-	def "File Config with ALL valid file contents should build a non-null FxCalculatorRegistry"(){
+	def "File Config with ALL valid file contents should build a non-null,non-empty FxCalculatorRegistry"(){
 		given:
 			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
 																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,

@@ -16,7 +16,7 @@ public class ConversionRateFeedTableParser implements IParser<Map<String, Float>
 	}
 
 	@Override
-	public ParsedObject<Map<String, Float>> parseValidatedLines(List<String> validatedInputLines) {
+	public ParsedObject<Map<String, Float>> parseValidatedLines(final List<String> validatedInputLines) {
 		final ParsedObject<Map<String, Float>> emptyParsedObject = new ParsedObject<>(Collections.emptyMap());
 		if (validatedInputLines==null || validatedInputLines.isEmpty()) return emptyParsedObject;
 		final Map<String, Float> conversionRateFeedLookUpMap = new HashMap<>();
@@ -36,7 +36,7 @@ public class ConversionRateFeedTableParser implements IParser<Map<String, Float>
 		    	return emptyParsedObject;
 		    }
 		  }
-		final ParsedObject<Map<String, Float>> parsedObject = new ParsedObject<>(conversionRateFeedLookUpMap);
+		final ParsedObject<Map<String, Float>> parsedObject = new ParsedObject<>(Collections.unmodifiableMap(conversionRateFeedLookUpMap));
         return parsedObject;
 	}
 	

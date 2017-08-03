@@ -58,14 +58,13 @@ public class FxCalculatorUserInteractor {
 	}
 	
 	private RegistryServiceProvider createRegistryServiceProvider(final FileContentsCache fileContentsCache) {
-		RegistryServiceProvider registryServiceProvider = null;
 		try{
-			registryServiceProvider = new RegistryServiceProvider(fileContentsCache);
+			return new RegistryServiceProvider(fileContentsCache);
 		}catch (EmptyRegistryException e){
 			reportMalFormedFiles();
 			switchOff();
 		}
-		return registryServiceProvider;
+		return null;
 	}
 	
 	private void switchOff() {

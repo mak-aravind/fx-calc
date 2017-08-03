@@ -56,7 +56,7 @@ class FxCalculatorSpec extends Specification{
 			"AUD 100.00 USD"				|_
 	}
 	
-	def "when a command has currencies not supported user should get proper message"(String inputCurrencyConversionCommand, String expectedOutput){
+	def "when a command has currencies not supported then user should get proper message"(String inputCurrencyConversionCommand, String expectedOutput){
 		given:
 			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
 																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
@@ -75,7 +75,7 @@ class FxCalculatorSpec extends Specification{
 			"KRW 1000.00 in FJD"			|"Unable to find rate for KRW/FJD"
 	}
 	
-	def "when a command has VALID currencies user should get output appended with converted value"(String inputCurrencyConversionCommand, 
+	def "when a command has VALID currencies then user should get output appended with converted value"(String inputCurrencyConversionCommand, 
 		String expectedOutput){
 		given:
 			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,

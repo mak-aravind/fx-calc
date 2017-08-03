@@ -13,11 +13,11 @@ public class CrossCurrencyTable{
 	private final ILookUp currencyIndexLookUp;
 	private final String[][] crossCurrencyMatrix;
 	
-	private CrossCurrencyTable(String[][] crossCurrencyMatrix,ILookUp currencyIndexLookUp) {
+	private CrossCurrencyTable(final String[][] crossCurrencyMatrix,final ILookUp currencyIndexLookUp) {
 		this.currencyIndexLookUp = currencyIndexLookUp;
 		this.crossCurrencyMatrix = crossCurrencyMatrix;
 	}
-	public static CrossCurrencyTable createCrossCurrencyTable(List<String> validatedInputLines,ILookUp currencyIndexLookUp) {
+	public static CrossCurrencyTable createCrossCurrencyTable(final List<String> validatedInputLines,final ILookUp currencyIndexLookUp) {
 		@SuppressWarnings("unchecked")
 		final IParser<String[][]> crossCurrencyTableParser = ParserFactory.getParser(CROSS_CURRENCY_TABLE_PARSER);
 		ParsedObject<String[][]> parsedObject = crossCurrencyTableParser.parseValidatedLines(validatedInputLines);
@@ -26,7 +26,7 @@ public class CrossCurrencyTable{
 		return new CrossCurrencyTable(crossCurrencyMatrix,currencyIndexLookUp);
 	}
 
-	public String getIntermediateCurrency(String baseCurrency, String termCurrency) {
+	public String getIntermediateCurrency(final String baseCurrency, final String termCurrency) {
 		final int rowIndex = currencyIndexLookUp.getValue(baseCurrency);
 		final int columnIndex = currencyIndexLookUp.getValue(termCurrency);
 		final String intermediateCurrency = lookUpCrossViaMatrix(rowIndex, columnIndex);
@@ -34,7 +34,7 @@ public class CrossCurrencyTable{
 	}
 	
 	
-	private String lookUpCrossViaMatrix(int row, int column){
+	private String lookUpCrossViaMatrix(final int row, final int column){
 		return crossCurrencyMatrix[row][column];
 	}
 }

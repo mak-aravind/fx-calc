@@ -16,7 +16,7 @@ public class CurrencyDecimalLookUpParser implements IParser<Map<String, Integer>
 	}
 
 	@Override
-	public ParsedObject<Map<String, Integer>> parseValidatedLines(List<String> validatedInputLines) {
+	public ParsedObject<Map<String, Integer>> parseValidatedLines(final List<String> validatedInputLines) {
 		final ParsedObject<Map<String, Integer>> emptyParsedObject = new ParsedObject<>(Collections.emptyMap());
 		if (validatedInputLines==null || validatedInputLines.isEmpty()) return emptyParsedObject;
 		Map<String,Integer> currencyDecimalLookUpMap= new HashMap<>();
@@ -31,7 +31,7 @@ public class CurrencyDecimalLookUpParser implements IParser<Map<String, Integer>
 		    	return emptyParsedObject;
 		    }
 		  }
-		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(currencyDecimalLookUpMap);
+		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(Collections.unmodifiableMap(currencyDecimalLookUpMap));
 		return parsedObject;
 	}
 	

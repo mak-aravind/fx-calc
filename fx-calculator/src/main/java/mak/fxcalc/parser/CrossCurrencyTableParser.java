@@ -13,7 +13,7 @@ public class CrossCurrencyTableParser implements IParser<String[][]>{
 	}
 
 	@Override
-	public ParsedObject<String[][]> parseValidatedLines(List<String> validatedInputLines) {
+	public ParsedObject<String[][]> parseValidatedLines(final List<String> validatedInputLines) {
 		if (validatedInputLines==null || validatedInputLines.isEmpty()) return null;
 		final int size = validatedInputLines.size();
 		final String[][] crossCurrencyMatrix = new String[size][size];

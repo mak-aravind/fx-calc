@@ -31,6 +31,6 @@ public class RegistryServiceProvider {
 	}
 
 	public CurrencyDecimalPlaceService getCurrencyDecimalPlaceService() {
-		return currencyDecimalPlaceService;
+		return this.currencyDecimalPlaceService;
 	}
 }

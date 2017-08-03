@@ -62,7 +62,7 @@ class UserInputCommandValidatorSpec extends Specification{
 			"JPY 0 in USD"					|["JPY 0 IN USD"]
 	}
 	
-	def "Except IOException thrown during validating should return an empty list"(){
+	def "IOException thrown during validating should return an empty list"(){
 		given:
 			commandReader = Mock()
 			commandReader.getValidatedInputLines("JPY 100 in USD") >> {throw new IOException()}

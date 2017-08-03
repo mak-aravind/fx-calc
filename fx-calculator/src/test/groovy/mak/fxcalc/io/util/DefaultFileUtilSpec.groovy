@@ -14,7 +14,7 @@ class DefaultFileUtilSpec extends Specification{
 			thrown(FileNotFoundException)
 	}
 	
-	def "Usage of existing file at resource folder should return Reader"(){
+	def "Usage of existing file at resource folder should return non-null Reader"(){
 		when:
 			def reader = getInputStreamReader(VALID_CURRENCY_RATES_MAIN_DATA_FILE_NAME)
 		then:

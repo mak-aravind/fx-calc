@@ -20,14 +20,12 @@ public class UserInputFileReader implements IDefaultUserInputReader{
 
 	@Override
 	public Reader getUserInputReader(String input) {
-		Reader inputReader = null;
 		try {
-			inputReader = DefaultFileUtil.getInputStreamReader(input);
+			return DefaultFileUtil.getInputStreamReader(input);
 		} catch (FileNotFoundException e) {
-				System.out.println("File not found please rerun with valid file name.");
-				return null;
+			System.out.println("File not found please rerun with valid file name.");
+			return null;
 		}
-		return inputReader;
 	}
 	@Override
 	public IValidator getValidator() {

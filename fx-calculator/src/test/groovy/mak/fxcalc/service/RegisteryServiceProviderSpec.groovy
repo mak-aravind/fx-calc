@@ -19,11 +19,11 @@ class RegisteryServiceProviderSpec extends Specification{
 
 	def "File Config with ANY invalid file contents should throw Service not available exception"(){
 		given:
-			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
+			def FileConfig inValidFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
 															VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
 															INVALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
 
-			def FilePatterns filePatterns = new FilePatterns(validFileConfig)
+			def FilePatterns filePatterns = new FilePatterns(inValidFileConfig)
 			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
 		when:
 			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)

@@ -17,7 +17,7 @@ class CrossCurrencyMatrixFileValidatorSpec extends Specification{
 	def inputValidator = new InputValidator(CROSS_CURRENCY_EACH_LINE_PATTERN)
 	def IDefaultUserInputReader fileReader = new UserInputFileReader(CROSS_CURRENCY_EACH_LINE_PATTERN)
 	
-	def "Each value should be a three character"(String crossCurrencyLine,List result){
+	def "Each value should have three character string"(String crossCurrencyLine,List result){
 		given:
 			def stringReader = new StringReader(crossCurrencyLine)
 			inputValidator.setReader(stringReader)
