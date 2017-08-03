@@ -23,16 +23,15 @@ public class FxCalculator {
 	}
 	
 	public String processCommand(final String command) {
-		UserCommand userCommand;
 		try {
-			userCommand = new UserCommand(command);
+			final UserCommand userCommand = new UserCommand(command);
+			return getResult(userCommand);
 		} catch (InvalidCommandException e) {
 			return CommandInputReaderConfig.INVALID_COMMAND;
 		} catch (IOException e) {
 			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
 			return "Please retry your command";
 		}
-		return getResult(userCommand);
 	}
 	
 	private String getResult(UserCommand userCommand) {
