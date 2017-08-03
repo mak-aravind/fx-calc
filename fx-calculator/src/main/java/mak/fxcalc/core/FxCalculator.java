@@ -68,11 +68,11 @@ public class FxCalculator {
 		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
 		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
 		final Float amount = Float.valueOf(userCommand.getAmount().trim()).floatValue();
-		final Float convertedValue = serviceConversion(amount);
+		final Float convertedValue = conversionServiced(amount);
 		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
 	}
 
-	private float serviceConversion(final Float amount) {
+	private float conversionServiced(final Float amount) {
 		final ConversionRateService conversionRateService = registryServiceProvider.getConversionRateService();
 		return baseCurrency.equals(termCurrency) ? amount :
 				amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);
