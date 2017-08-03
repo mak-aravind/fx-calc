@@ -32,29 +32,28 @@ public class FxCalculator {
 			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
 			return "Please retry your command";
 		}
-		setUserCommand(userCommand);
-		return getResult();
+		return getResult(userCommand);
 	}
 	
-	private void setUserCommand(UserCommand userCommand) {
+	private String getResult(UserCommand userCommand) {
 		this.userCommand = userCommand;
 		this.baseCurrency = userCommand.getBaseCurrency();
 		this.termCurrency = userCommand.getTermCurrency();
+		return serviceResult();
 	}
 
-	private String getResult(){
+	private String serviceResult(){
 		final CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
 		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency))
 			appendConvertedValue(result);
 		else
 			appendUnavailability(result);
-		
 		return result.toString();
 	}
 
 	private void appendConvertedValue(final StringBuilder result) {
-		result.append(userCommand.getOutputToDisplay());
+		result.append(this.userCommand.getOutputToDisplay());
 		result.append(" ");
 		result.append(getConvertedValue());
 	}
@@ -70,11 +69,11 @@ public class FxCalculator {
 		final CurrencyDecimalPlaceService currencyDecimalPlaceService = registryServiceProvider.getCurrencyDecimalPlaceService();
 		final String decimalPlaceFormatter = currencyDecimalPlaceService.getDecimalPlaceFormatter(termCurrency);
 		final Float amount = Float.valueOf(userCommand.getAmount().trim()).floatValue();
-		final Float convertedValue = calculateConversion(amount);
+		final Float convertedValue = serviceConversion(amount);
 		return Float.parseFloat(String.format(decimalPlaceFormatter, convertedValue));
 	}
 
-	private float calculateConversion(final Float amount) {
+	private float serviceConversion(final Float amount) {
 		final ConversionRateService conversionRateService = registryServiceProvider.getConversionRateService();
 		return baseCurrency.equals(termCurrency) ? amount :
 				amount * conversionRateService.getConversionRate(baseCurrency, termCurrency);

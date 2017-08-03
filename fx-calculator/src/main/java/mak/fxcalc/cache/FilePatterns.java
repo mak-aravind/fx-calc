@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class FilePatterns{
-
 	private final Map<String, Pattern> patternsMappedToFileName=new HashMap<>();
 	private final FileConfig fileConfig;
 	public FilePatterns(FileConfig fileConfig){
@@ -20,10 +19,10 @@ public class FilePatterns{
 	}
 
 	public Map<String, Pattern> getPatternsMappedToFileName() {
-		return patternsMappedToFileName;
+		return this.patternsMappedToFileName;
 	}
 
 	public FileConfig getFileConfig() {
-		return fileConfig;
+		return this.fileConfig;
 	}
 }

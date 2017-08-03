@@ -280,44 +280,44 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <realization id="30">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <association id="31">    
+  <association id="30">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="32" name="conversionRateService">        
+      <attribute id="31" name="conversionRateService">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
+      <multiplicity id="32" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="33">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
   <association id="34">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="35" name="fileConfig">        
-        <position height="0" width="0" x="-1501" y="311"/>      
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="35" name="currencyIndexLookUp">        
+        <position height="16" width="117" x="-412" y="-385"/>      
       </attribute>      
       <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-1501" y="311"/>      
+        <position height="14" width="23" x="-278" y="-387"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="37">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="38" name="userCommand">        
-        <position height="0" width="0" x="470" y="326"/>      
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="38" name="crossCurrencyTable">        
+        <position height="16" width="108" x="398" y="-353"/>      
       </attribute>      
       <multiplicity id="39" minimum="0" maximum="1">        
-        <position height="0" width="0" x="470" y="326"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="40">    
@@ -332,34 +332,34 @@
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="44" name="conversionRateFeedTable">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
+  <realization id="43">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="44">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="47" name="currencyDecimalLookUp">        
+      <attribute id="45" name="currencyDecimalLookUp">        
         <position height="16" width="131" x="-543" y="-249"/>      
       </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
+      <multiplicity id="46" minimum="0" maximum="1">        
         <position height="14" width="23" x="-394" y="-249"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="49">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
+  <association id="47">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="48" name="filePatterns">        
+        <position height="0" width="0" x="-1508" y="315"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-1508" y="315"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="50">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="51" name="currencyIndexLookUp">        
@@ -376,212 +376,208 @@
     <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="29"/>  
   </realization>  
-  <realization id="54">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="55">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <association id="56">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="57" name="filePatterns">        
-        <position height="0" width="0" x="-1508" y="315"/>      
-      </attribute>      
-      <multiplicity id="58" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-1508" y="315"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="60" name="currencyIndexLookUp">        
+  <association id="54">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="55" name="conversionRateFeedTable">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="61" minimum="0" maximum="1">        
-        <position height="14" width="23" x="291" y="-89"/>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="63" name="crossCurrencyTable">        
-        <position height="0" width="0" x="23" y="-81"/>      
-      </attribute>      
-      <multiplicity id="64" minimum="0" maximum="1">        
-        <position height="0" width="0" x="23" y="-81"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="65">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <realization id="66">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <association id="67">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="68" name="parsersList">        
-        <position height="0" width="0" x="-826" y="-169"/>      
-      </attribute>      
-      <multiplicity id="69" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-826" y="-169"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="71" name="currencyIndexLookUp">        
-        <position height="16" width="117" x="-412" y="-385"/>      
-      </attribute>      
-      <multiplicity id="72" minimum="0" maximum="1">        
-        <position height="14" width="23" x="-278" y="-387"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
+  <association id="57">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="74" name="registryServiceProvider">        
+      <attribute id="58" name="registryServiceProvider">        
         <position height="0" width="0" x="8" y="-27"/>      
       </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
+      <multiplicity id="59" minimum="0" maximum="1">        
         <position height="0" width="0" x="8" y="-27"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="77" name="currencyDecimalLookUp">        
-        <position height="16" width="129" x="260" y="-63"/>      
+  <association id="60">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="61" name="crossCurrencyTable">        
+        <position height="0" width="0" x="23" y="-81"/>      
       </attribute>      
-      <multiplicity id="78" minimum="0" maximum="1">        
-        <position height="14" width="23" x="-163" y="-184"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="80" name="fileValidator">        
-        <position height="16" width="62" x="821" y="-1545"/>      
-      </attribute>      
-      <multiplicity id="81" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="83" name="crossCurrencyTable">        
-        <position height="16" width="108" x="398" y="-353"/>      
-      </attribute>      
-      <multiplicity id="84" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="23" y="-81"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="85">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="86" name="conversionRateFeedTable">        
-        <position height="0" width="0" x="-149" y="29"/>      
-      </attribute>      
-      <multiplicity id="87" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-149" y="29"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="88">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="89" name="fxCalculator">        
-        <position height="0" width="0" x="1" y="5"/>      
-      </attribute>      
-      <multiplicity id="90" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1" y="5"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="91">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="92" name="fxCalculatorLookUpRegistry">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="93" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="94">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <association id="95">    
+  <association id="63">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="96" name="currencyDecimalPlaceService">        
+      <attribute id="64" name="currencyDecimalPlaceService">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="97" minimum="0" maximum="1">        
+      <multiplicity id="65" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="98">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="99" name="userInputCommandReader"/>      
-      <multiplicity id="100" minimum="0" maximum="1"/>    
+  <realization id="66">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="67">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="68" name="fxCalculator">        
+        <position height="0" width="0" x="1" y="5"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1" y="5"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="101">    
+  <association id="70">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="71" name="fileValidator">        
+        <position height="16" width="62" x="821" y="-1545"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="74" name="conversionRateFeedTable">        
+        <position height="0" width="0" x="-149" y="29"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-149" y="29"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="77" name="fileConfig">        
+        <position height="0" width="0" x="-1501" y="311"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-1501" y="311"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="79">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="80">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="81" name="currencyDecimalLookUp">        
+        <position height="16" width="129" x="260" y="-63"/>      
+      </attribute>      
+      <multiplicity id="82" minimum="0" maximum="1">        
+        <position height="14" width="23" x="-163" y="-184"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="83">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="84">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="85" name="commandValidator">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="14" width="23" x="1089" y="-1549"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="87">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="88">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="89" name="parsersList">        
+        <position height="0" width="0" x="-826" y="-169"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-826" y="-169"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="102" name="fxCalculatorRegistry">        
+      <attribute id="92" name="fxCalculatorRegistry">        
         <position height="0" width="0" x="-503" y="-164"/>      
       </attribute>      
-      <multiplicity id="103" minimum="0" maximum="1">        
+      <multiplicity id="93" minimum="0" maximum="1">        
         <position height="0" width="0" x="-503" y="-164"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="104">    
-    <end type="SOURCE" refId="8"/>    
+  <realization id="94">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="95">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <association id="105">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="106" name="commandValidator"/>      
-      <multiplicity id="107" minimum="0" maximum="1">        
-        <position height="14" width="23" x="1089" y="-1549"/>      
+  <association id="96">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="97" name="fxCalculatorLookUpRegistry">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="100" name="currencyIndexLookUp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="101" minimum="0" maximum="1">        
+        <position height="14" width="23" x="291" y="-89"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="103" name="userInputCommandReader">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="104" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
