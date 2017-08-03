@@ -17,7 +17,6 @@ public class CurrencyIndexLookUp implements ILookUp{
 		this.currencyIndexLookUpMap = currencyIndexLookUpMap;
 	}
 	public static CurrencyIndexLookUp createCurrencyIndexLookup(List<String> validatedInputLines) {
-		@SuppressWarnings("unchecked")
 		final IParser<Map<String, Integer>> currencyIndexLookUpParser = ParserFactory.getParser(CURRENCY_INDEX_LOOK_UP_PARSER);
 		final ParsedObject<Map<String, Integer>> parsedObject = currencyIndexLookUpParser.parseValidatedLines(validatedInputLines);
 		final Map<String, Integer> currencyIndexLookUpMap = parsedObject.getTableData();

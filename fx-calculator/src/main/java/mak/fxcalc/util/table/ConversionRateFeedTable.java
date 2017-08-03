@@ -18,7 +18,6 @@ public class ConversionRateFeedTable{
 	}
 	
 	public static ConversionRateFeedTable createConversionRateFeedLookUp(final List<String> conversionRateFeedLines) {
-		@SuppressWarnings("unchecked")
 		final IParser<Map<String, Float>> conversionRateFeedTableParser = ParserFactory.getParser(CONVERSION_RATE_FEED_TABLE_PARSER);
 		ParsedObject<Map<String, Float>> parsedObject = conversionRateFeedTableParser.parseValidatedLines(conversionRateFeedLines);
 		Map<String, Float> conversionRateFeedTableMap = parsedObject.getTableData();

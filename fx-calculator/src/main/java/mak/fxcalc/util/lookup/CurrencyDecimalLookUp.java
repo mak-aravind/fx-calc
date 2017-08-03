@@ -17,7 +17,6 @@ public class CurrencyDecimalLookUp implements ILookUp{
 		this.currencyDecimalLookUpMap = currencyDecimalLookUpMap;
 	}
 	public static CurrencyDecimalLookUp createCurrencyDecimalLookUp(List<String> currencyDecimalPlacesList) {
-		@SuppressWarnings("unchecked")
 		final IParser<Map<String, Integer>> currencyDecimalLookUpParser  = ParserFactory.getParser(CURRENCY_DECIMAL_LOOK_UP_PARSER);
 		final ParsedObject<Map<String, Integer>> parsedObject = currencyDecimalLookUpParser.parseValidatedLines(currencyDecimalPlacesList);
 		final Map<String, Integer>currencyDecimalLookUpMap = parsedObject.getTableData();

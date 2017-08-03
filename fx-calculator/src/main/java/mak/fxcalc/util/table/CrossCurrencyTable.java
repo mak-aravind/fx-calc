@@ -18,7 +18,6 @@ public class CrossCurrencyTable{
 		this.crossCurrencyMatrix = crossCurrencyMatrix;
 	}
 	public static CrossCurrencyTable createCrossCurrencyTable(final List<String> validatedInputLines,final ILookUp currencyIndexLookUp) {
-		@SuppressWarnings("unchecked")
 		final IParser<String[][]> crossCurrencyTableParser = ParserFactory.getParser(CROSS_CURRENCY_TABLE_PARSER);
 		ParsedObject<String[][]> parsedObject = crossCurrencyTableParser.parseValidatedLines(validatedInputLines);
 		if (null == parsedObject) return null;
