@@ -24,8 +24,8 @@ public class FxCalculator {
 	
 	public String processCommand(final String command) {
 		try {
-			final UserCommand userCommand = new UserCommand(command);
-			return getResult(userCommand);
+			final UserCommand userCommandToProcess = new UserCommand(command);
+			return getResult(userCommandToProcess);
 		} catch (InvalidCommandException e) {
 			return CommandInputReaderConfig.INVALID_COMMAND;
 		} catch (IOException e) {
@@ -34,14 +34,14 @@ public class FxCalculator {
 		}
 	}
 	
-	private String getResult(UserCommand userCommand) {
-		this.userCommand = userCommand;
-		this.baseCurrency = userCommand.getBaseCurrency();
-		this.termCurrency = userCommand.getTermCurrency();
-		return serviceResult();
+	private String getResult(UserCommand userCommandToProcess) {
+		this.userCommand = userCommandToProcess;
+		this.baseCurrency = userCommandToProcess.getBaseCurrency();
+		this.termCurrency = userCommandToProcess.getTermCurrency();
+		return resultServiced();
 	}
 
-	private String serviceResult(){
+	private String resultServiced(){
 		final CurrencyIndexLookUpService currencyIndexLookUpService = registryServiceProvider.getCurrencyIndexLookUpService();
 		final StringBuilder result = new StringBuilder();
 		if(currencyIndexLookUpService.hasValidCurrencies(baseCurrency,termCurrency))
