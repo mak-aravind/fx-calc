@@ -1,7 +1,11 @@
 package mak.fxcalc.core;
 
+import static mak.fxcalc.app.config.CommandInputReaderConfig.EMPTY_REGISTRY_SERVICE;
+import static mak.fxcalc.app.config.CommandInputReaderConfig.INVALID_COMMAND;
+import static mak.fxcalc.app.config.CommandInputReaderConfig.RETRY_COMMAND;
+
 import java.io.IOException;
-import mak.fxcalc.app.config.CommandInputReaderConfig;
+
 import mak.fxcalc.service.ConversionRateService;
 import mak.fxcalc.service.CurrencyDecimalPlaceService;
 import mak.fxcalc.service.CurrencyIndexLookUpService;
@@ -9,6 +13,7 @@ import mak.fxcalc.service.RegistryServiceProvider;
 
 public class FxCalculator {
 	
+
 	private final RegistryServiceProvider registryServiceProvider;
 	private String baseCurrency;
 	private String termCurrency;
@@ -20,18 +25,20 @@ public class FxCalculator {
 	}
 	
 	public boolean switchedOn() {
-		return (null != this.registryServiceProvider) || (!this.registryServiceProvider.isEmptyData());
+		return (null != this.registryServiceProvider) && (!this.registryServiceProvider.isEmptyData());
 	}
 	
 	public String processCommand(final String command) {
+		if (!switchedOn()) 
+			return EMPTY_REGISTRY_SERVICE;
 		try {
 			final UserCommand userCommandToProcess = new UserCommand(command);
 			return getResult(userCommandToProcess);
 		} catch (InvalidCommandException e) {
-			return CommandInputReaderConfig.INVALID_COMMAND;
+			return INVALID_COMMAND;
 		} catch (IOException e) {
 			System.out.println("<FX-CALCULATOR>Unexpected IO exception: " + e.getMessage());
-			return "Please retry your command";
+			return RETRY_COMMAND;
 		}
 	}
 	

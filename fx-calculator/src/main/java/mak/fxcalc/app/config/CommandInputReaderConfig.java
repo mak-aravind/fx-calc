@@ -12,4 +12,6 @@ public class CommandInputReaderConfig {
 	public static final Pattern INPUT_COMMAND_PATTERN = Pattern.compile(INPUT_COMMAND_REGEX,PATTERN_COMPILATION_CONFIG);
 	public static final String INVALID_COMMAND = "Invalid Command";
 	public static final String EXAMPLE_COMMAND = "Example: AUD 100.00 in DKK";
+	public static final String RETRY_COMMAND = "Please retry your command";
+	public static final String EMPTY_REGISTRY_SERVICE = "Registry Service Provider has empty data";
 }

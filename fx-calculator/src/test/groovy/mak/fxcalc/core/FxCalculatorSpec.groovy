@@ -97,4 +97,20 @@ class FxCalculatorSpec extends Specification{
 			"AUD 1 IN JPY"					|"AUD 1 = JPY 100.0"
 			"AUD 100.05 in AUD"				|"AUD 100.05 = AUD 100.05"
 	}
+	
+	def "A calculator configured with mocked registry service provider should not process command if mock has empty data"(String inputCurrencyConversionCommand, String expectedOutput){
+		given:
+			def RegistryServiceProvider registryServiceProvider = Mock()
+			
+			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
+		and: 'Mock return true'
+			1 * registryServiceProvider.isEmptyData() >> true
+		when:
+			def result = fxCalculator.processCommand(inputCurrencyConversionCommand)
+		then:
+			expectedOutput.equals(result)
+		where:
+			inputCurrencyConversionCommand	|expectedOutput
+			"AUD 100.05 in AUD"				|"Registry Service Provider has empty data"
+	}
 }
