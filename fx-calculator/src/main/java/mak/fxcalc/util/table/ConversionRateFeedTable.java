@@ -13,7 +13,7 @@ import mak.fxcalc.util.ParsedObject;
 public class ConversionRateFeedTable{
 	private final Map<String, Float> conversionRateFeedTableMap;
 	
-	private ConversionRateFeedTable(Map<String, Float> conversionRateFeedTableMap) {
+	private ConversionRateFeedTable(final Map<String, Float> conversionRateFeedTableMap) {
 		this.conversionRateFeedTableMap = conversionRateFeedTableMap;
 	}
 	

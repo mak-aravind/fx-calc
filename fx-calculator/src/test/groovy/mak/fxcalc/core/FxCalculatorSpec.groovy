@@ -16,15 +16,15 @@ import mak.fxcalc.service.EmptyRegistryException
 import spock.lang.Specification
 class FxCalculatorSpec extends Specification{
 	
+	def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
+		VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
+		VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
+	def FilePatterns filePatterns = new FilePatterns(validFileConfig)
+	def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
+	def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
+	
 	def "File Config with ALL valid file contents should switch on FX-Calculator"(){
 		given:
-			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
-																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
-																VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
-			
-			def FilePatterns filePatterns = new FilePatterns(validFileConfig)
-			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		expect:
 			true == fxCalculator.switchedOn()
@@ -32,13 +32,6 @@ class FxCalculatorSpec extends Specification{
 	
 	def "when an invalid command is given to calculator it should return Invalid Command"(String inputCurrencyConversionCommand){
 		given:
-			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
-																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
-																VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
-			
-			def FilePatterns filePatterns = new FilePatterns(validFileConfig)
-			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		expect:
 			INVALID_COMMAND.equals(fxCalculator.processCommand(inputCurrencyConversionCommand))
@@ -58,13 +51,6 @@ class FxCalculatorSpec extends Specification{
 	
 	def "when a command has currencies not supported then user should get proper message"(String inputCurrencyConversionCommand, String expectedOutput){
 		given:
-			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
-																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
-																VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
-			
-			def FilePatterns filePatterns = new FilePatterns(validFileConfig)
-			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		expect:
 			expectedOutput.equals(fxCalculator.processCommand(inputCurrencyConversionCommand))
@@ -78,13 +64,6 @@ class FxCalculatorSpec extends Specification{
 	def "when a command has VALID currencies then user should get output appended with converted value"(String inputCurrencyConversionCommand, 
 		String expectedOutput){
 		given:
-			def FileConfig validFileConfig = new FileConfig(VALID_CURRENCY_RATES_TEST_DATA_FILE_NAME,
-																VALID_CROSS_CURRENCY_MATRIX_TEST_DATA_FILE_NAME,
-																VALID_CURRENCY_DECIMAL_PLACES_DATA_FILE_NAME)
-			
-			def FilePatterns filePatterns = new FilePatterns(validFileConfig)
-			def FileContentsCache fileContentsCache = new FileContentsCache(filePatterns)
-			def RegistryServiceProvider registryServiceProvider = new RegistryServiceProvider(fileContentsCache)
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		expect:
 			expectedOutput.equals(fxCalculator.processCommand(inputCurrencyConversionCommand))
@@ -98,10 +77,9 @@ class FxCalculatorSpec extends Specification{
 			"AUD 100.05 in AUD"				|"AUD 100.05 = AUD 100.05"
 	}
 	
-	def "A calculator configured with mocked registry service provider should not process command if mock has empty data"(String inputCurrencyConversionCommand, String expectedOutput){
+	def "Before processing any command the registry service provider should be checked for empty data"(String inputCurrencyConversionCommand, String expectedOutput){
 		given:
 			def RegistryServiceProvider registryServiceProvider = Mock()
-			
 			def FxCalculator fxCalculator = new FxCalculator(registryServiceProvider)
 		and: 'Mock return true'
 			1 * registryServiceProvider.isEmptyData() >> true

@@ -6,9 +6,9 @@ public class FileConfig {
 	private final String crossCurrencyMatrixFileName;
 	private final String currencyDecimalPlacesFileName;
 	
-	public FileConfig(String currencyRatesFileName,
-			 String crossCurrencyMatrixFileName,
-			 String currencyDecimalPlacesFileName){
+	public FileConfig(final String currencyRatesFileName,
+			 final String crossCurrencyMatrixFileName,
+			 final String currencyDecimalPlacesFileName){
 		this.currencyRatesFileName = currencyRatesFileName;
 		this.crossCurrencyMatrixFileName = crossCurrencyMatrixFileName;
 		this.currencyDecimalPlacesFileName = currencyDecimalPlacesFileName;

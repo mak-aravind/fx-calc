@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface IValidator {
 	public List<String> getValidatedInputLines();
-	public void setReader(Reader fileReader);
+	public void setReader(final Reader fileReader);
 }

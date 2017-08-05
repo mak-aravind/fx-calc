@@ -7,7 +7,7 @@ public class ConversionRateService{
 	private final ConversionRateFeedTable conversionRateFeedTable;
 	private final CrossCurrencyTable crossCurrencyTable;
 
-	public ConversionRateService(FxCalculatorRegistry fxCalculatorRegistry) {
+	public ConversionRateService(final FxCalculatorRegistry fxCalculatorRegistry) {
 		this.conversionRateFeedTable = fxCalculatorRegistry.getConversionRateFeedTable();
 		this.crossCurrencyTable = fxCalculatorRegistry.getCrossCurrencyTable();
 	}

@@ -14,12 +14,12 @@ public class UserInputFileReader implements IDefaultUserInputReader{
 
 	final private IValidator fileValidator;
 	
-	public UserInputFileReader(Pattern pattern) {
+	public UserInputFileReader(final Pattern pattern) {
 		this.fileValidator = new InputValidator(pattern);
 	}
 
 	@Override
-	public Reader getUserInputReader(String input) {
+	public Reader getUserInputReader(final String input) {
 		try {
 			return DefaultFileUtil.getInputStreamReader(input);
 		} catch (FileNotFoundException e) {

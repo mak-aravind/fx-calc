@@ -13,8 +13,9 @@ class FxCalculatorRegistry {
 	private final CrossCurrencyTable crossCurrencyTable;
 	private final ConversionRateFeedTable conversionRateFeedTable;
 	private final boolean emptyRegistry;
-	private FxCalculatorRegistry(FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry,
-			CrossCurrencyTable crossCurrencyTable, ConversionRateFeedTable conversionRateFeedTable) {
+	private FxCalculatorRegistry(final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry,
+								 final CrossCurrencyTable crossCurrencyTable, 
+								 final ConversionRateFeedTable conversionRateFeedTable) {
 		this.fxCalculatorLookUpRegistry = fxCalculatorLookUpRegistry;
 		this.crossCurrencyTable = crossCurrencyTable;
 		this.conversionRateFeedTable = conversionRateFeedTable;
@@ -37,11 +38,10 @@ class FxCalculatorRegistry {
 		return this.emptyRegistry;
 	}
 
-	static FxCalculatorRegistry buildFxCalculatorRegistry(FileContentsCache fileContentsCache) {
+	static FxCalculatorRegistry buildFxCalculatorRegistry(final FileContentsCache fileContentsCache) {
 		if (null == fileContentsCache|| fileContentsCache.isEmpty()) return null;
 		
 		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = buildLookUpRegistry(fileContentsCache);
-		
 		if (null == fxCalculatorLookUpRegistry)
 			return null;
 
@@ -54,7 +54,7 @@ class FxCalculatorRegistry {
 		return fxCalculatorRegistry;
 	}
 
-	private static ConversionRateFeedTable buildConversionRateFeedTable(FileContentsCache fileContentsCache) {
+	private static ConversionRateFeedTable buildConversionRateFeedTable(final FileContentsCache fileContentsCache) {
 		
 		final String currencyRatesFileName = fileContentsCache.getFilePatterns()
 															  .getFileConfig()
@@ -67,7 +67,7 @@ class FxCalculatorRegistry {
 		return conversionRateFeedTable;
 	}
 
-	private static CrossCurrencyTable buildCrossCurrencyTable(FileContentsCache fileContentsCache,
+	private static CrossCurrencyTable buildCrossCurrencyTable(final FileContentsCache fileContentsCache,
 			FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry) {
 		final String crossCurrencyMatrixFileName = fileContentsCache.getFilePatterns()
 																	.getFileConfig()
@@ -81,14 +81,15 @@ class FxCalculatorRegistry {
 		return crossCurrencyTable;
 	}
 
-	private static FxCalculatorLookUpRegistry buildLookUpRegistry(FileContentsCache fileContentsCache) {
+	private static FxCalculatorLookUpRegistry buildLookUpRegistry(final FileContentsCache fileContentsCache) {
 		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = FxCalculatorLookUpRegistry
 				.buildFxCalculatorLookUpRegistry(fileContentsCache);
 		return fxCalculatorLookUpRegistry;
 	}
 	
-	private boolean getStatus(FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry,
-			CrossCurrencyTable crossCurrencyTable, ConversionRateFeedTable conversionRateFeedTable) {
+	private boolean getStatus(final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry,
+							  final CrossCurrencyTable crossCurrencyTable, 
+							  final ConversionRateFeedTable conversionRateFeedTable) {
 		final boolean status = fxCalculatorLookUpRegistry == null 
 						|| crossCurrencyTable == null 
 						|| conversionRateFeedTable == null;

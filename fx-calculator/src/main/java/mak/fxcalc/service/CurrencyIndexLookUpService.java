@@ -6,7 +6,7 @@ public class CurrencyIndexLookUpService{
 	
 	private final ILookUp currencyIndexLookUp;
 	
-	public CurrencyIndexLookUpService(FxCalculatorRegistry fxCalculatorRegistry) {
+	public CurrencyIndexLookUpService(final FxCalculatorRegistry fxCalculatorRegistry) {
 		this.currencyIndexLookUp = fxCalculatorRegistry.getFxCalculatorLookUpRegistry()
 				.getCurrencyIndexLookUp();
 	}

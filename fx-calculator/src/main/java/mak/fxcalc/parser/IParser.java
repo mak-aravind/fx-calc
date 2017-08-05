@@ -5,5 +5,5 @@ import java.util.List;
 import mak.fxcalc.util.ParsedObject;
 
 public interface IParser<T> {
-	ParsedObject<T> parseValidatedLines(List<String> validatedInputLines);
+	ParsedObject<T> parseValidatedLines(final List<String> validatedInputLines);
 }

@@ -14,7 +14,7 @@ public class CurrencyIndexLookUpParser implements IParser<Map<String, Integer>>{
 	private static final int FIRST_LINE = 0;
 	private Pattern csvStrippingPattern;
 
-	public CurrencyIndexLookUpParser(Pattern csvStrippingPattern) {
+	public CurrencyIndexLookUpParser(final Pattern csvStrippingPattern) {
 		this.csvStrippingPattern = csvStrippingPattern;
 	}
 

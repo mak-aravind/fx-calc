@@ -18,12 +18,12 @@ public class InputValidator implements IValidator{
 	
 	final private Pattern pattern;
 
-	public InputValidator(Pattern pattern) {
+	public InputValidator(final Pattern pattern) {
 		this.pattern = pattern;
 	}
 	
 	@Override
-	public void setReader(Reader fileReader) {
+	public void setReader(final Reader fileReader) {
 		this.input = fileReader;
 	}
 	

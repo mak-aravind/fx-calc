@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class FilePatterns{
 	private final Map<String, Pattern> patternsMappedToFileName;
 	private final FileConfig fileConfig;
-	public FilePatterns(FileConfig fileConfig){
+	public FilePatterns(final FileConfig fileConfig){
 		this.fileConfig = fileConfig;
 		this.patternsMappedToFileName = new HashMap<>();
 		this.patternsMappedToFileName.put(this.fileConfig.getCrossCurrencyMatrixFileName(), CROSS_CURRENCY_EACH_LINE_PATTERN);

@@ -9,7 +9,7 @@ public class RegistryServiceProvider {
 	private final CurrencyIndexLookUpService currencyIndexLookUpService;
 	private final CurrencyDecimalPlaceService currencyDecimalPlaceService;
 
-	public RegistryServiceProvider(FileContentsCache fileContentsCache) throws EmptyRegistryException{
+	public RegistryServiceProvider(final FileContentsCache fileContentsCache) throws EmptyRegistryException{
 		this.fxCalculatorRegistry = FxCalculatorRegistry.buildFxCalculatorRegistry(fileContentsCache);
 		if (isEmptyData()) throw new EmptyRegistryException();
 		

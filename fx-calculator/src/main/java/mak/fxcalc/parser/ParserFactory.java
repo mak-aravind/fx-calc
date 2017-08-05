@@ -21,7 +21,7 @@ public class ParserFactory {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public static IParser getParser(String requiredParser){
+	public static IParser getParser(final String requiredParser){
 		ParserFactory parserFactory = new ParserFactory();
 		return parserFactory.get(requiredParser);
 	}

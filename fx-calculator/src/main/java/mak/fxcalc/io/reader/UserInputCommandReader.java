@@ -11,12 +11,12 @@ public class UserInputCommandReader implements IDefaultUserInputReader {
 	
 	final private IValidator commandValidator;
 	
-	public UserInputCommandReader(Pattern pattern) {
+	public UserInputCommandReader(final Pattern pattern) {
 		this.commandValidator = new InputValidator(pattern);
 	}
 
 	@Override
-	public Reader getUserInputReader(String input) {
+	public Reader getUserInputReader(final String input) {
 		return new StringReader(input);
 	}
 

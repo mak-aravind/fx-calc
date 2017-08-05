@@ -13,10 +13,10 @@ import mak.fxcalc.util.ParsedObject;
 public class CurrencyDecimalLookUp implements ILookUp{
 	private final Map<String, Integer> currencyDecimalLookUpMap;
 	
-	private CurrencyDecimalLookUp(Map<String, Integer> currencyDecimalLookUpMap) {
+	private CurrencyDecimalLookUp(final Map<String, Integer> currencyDecimalLookUpMap) {
 		this.currencyDecimalLookUpMap = currencyDecimalLookUpMap;
 	}
-	public static CurrencyDecimalLookUp createCurrencyDecimalLookUp(List<String> currencyDecimalPlacesList) {
+	public static CurrencyDecimalLookUp createCurrencyDecimalLookUp(final List<String> currencyDecimalPlacesList) {
 		final IParser<Map<String, Integer>> currencyDecimalLookUpParser  = ParserFactory.getParser(CURRENCY_DECIMAL_LOOK_UP_PARSER);
 		final ParsedObject<Map<String, Integer>> parsedObject = currencyDecimalLookUpParser.parseValidatedLines(currencyDecimalPlacesList);
 		final Map<String, Integer>currencyDecimalLookUpMap = parsedObject.getTableData();
@@ -24,11 +24,11 @@ public class CurrencyDecimalLookUp implements ILookUp{
 	}
 	
 	@Override
-	public Integer getValue(String currency){
+	public Integer getValue(final String currency){
 		return this.currencyDecimalLookUpMap.get(currency);
 	}
 	@Override
-	public Boolean contains(String currency) {
+	public Boolean contains(final String currency) {
 		return this.currencyDecimalLookUpMap.containsKey(currency);
 	}
 }

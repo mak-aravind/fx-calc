@@ -20,7 +20,7 @@ public class FxCalculator {
 	private String amount;
 	private UserCommand userCommand;
 	
-	public FxCalculator(RegistryServiceProvider registryServiceProvider) {
+	public FxCalculator(final RegistryServiceProvider registryServiceProvider) {
 		 this.registryServiceProvider =  registryServiceProvider;
 	}
 	
@@ -42,7 +42,7 @@ public class FxCalculator {
 		}
 	}
 	
-	private String getResult(UserCommand userCommandToProcess) {
+	private String getResult(final UserCommand userCommandToProcess) {
 		this.userCommand = userCommandToProcess;
 		this.baseCurrency = this.userCommand.getBaseCurrency();
 		this.termCurrency = this.userCommand.getTermCurrency();

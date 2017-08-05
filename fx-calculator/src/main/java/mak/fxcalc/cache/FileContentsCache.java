@@ -18,7 +18,7 @@ public class FileContentsCache {
 	final private Map<String, List<String>> listCachedWithFileContents = new HashMap<>();
 	final private boolean empty;
 	
-	public FileContentsCache(FilePatterns filePatterns){
+	public FileContentsCache(final FilePatterns filePatterns){
 		this.filePatterns = filePatterns;
 		this.patternsMappedToFileName = this.filePatterns.getPatternsMappedToFileName();
 		this.empty = loadFileContents();
