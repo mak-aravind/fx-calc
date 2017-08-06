@@ -18,5 +18,4 @@ public class RegularExpressionConfig {
     private static final String floatOrInteger="(\\d+(?:\\.\\d{2})?)";
     private static final String inWord="(in)";
     public static final String INPUT_COMMAND_REGEX = currency+singleWhiteSpace+floatOrInteger+singleWhiteSpace+inWord+singleWhiteSpace+currency;
-
 }

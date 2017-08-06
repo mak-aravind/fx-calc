@@ -20,7 +20,7 @@ public class UserCommand {
 
 	public UserCommand(final String command) throws InvalidCommandException, IOException {
 		this.command = command;
-		List<String> validatedInputLines = this.userInputCommandReader.getValidatedInputLines(this.command);
+		final List<String> validatedInputLines = this.userInputCommandReader.getValidatedInputLines(this.command);
 		if (validatedInputLines.isEmpty()) 
 			throw new InvalidCommandException();
 		setKeyAttributes(validatedInputLines.get(0));
@@ -53,7 +53,7 @@ public class UserCommand {
 	}
 
 	private String getFormattedOutput() {
-		StringBuilder formattedOutputToDisplay = new StringBuilder();
+		final StringBuilder formattedOutputToDisplay = new StringBuilder();
 		formattedOutputToDisplay.append(this.baseCurrency);
 		formattedOutputToDisplay.append(" ");
 		formattedOutputToDisplay.append(this.amount);

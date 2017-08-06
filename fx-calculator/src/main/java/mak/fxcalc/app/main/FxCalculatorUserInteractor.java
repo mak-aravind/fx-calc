@@ -60,7 +60,7 @@ public class FxCalculatorUserInteractor {
 	private RegistryServiceProvider createRegistryServiceProvider(final FileContentsCache fileContentsCache) {
 		try{
 			return new RegistryServiceProvider(fileContentsCache);
-		}catch (EmptyRegistryException e){
+		}catch (final EmptyRegistryException e){
 			reportMalFormedFiles();
 			switchOff();
 		}

@@ -24,15 +24,12 @@ class FxCalculatorLookUpRegistry {
 	
 	static FxCalculatorLookUpRegistry buildFxCalculatorLookUpRegistry(final FileContentsCache fileContentsCache) {
 		final CurrencyDecimalLookUp currencyDecimalLookUp = buildCurrencyDecimalLookUp(fileContentsCache);
-		if (null == currencyDecimalLookUp)
-			return null;
+		if (null == currencyDecimalLookUp) return null;
 		
 		final CurrencyIndexLookUp currencyIndexLookup = buildCurrencyIndexLookUp(fileContentsCache);
-		if (null == currencyIndexLookup)
-			return null;
+		if (null == currencyIndexLookup) return null;
 		
-		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = new FxCalculatorLookUpRegistry(
-				currencyDecimalLookUp, currencyIndexLookup);
+		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = new FxCalculatorLookUpRegistry(currencyDecimalLookUp, currencyIndexLookup);
 		return fxCalculatorLookUpRegistry;
 	}
 	private static CurrencyIndexLookUp buildCurrencyIndexLookUp(final FileContentsCache fileContentsCache) {
@@ -40,10 +37,8 @@ class FxCalculatorLookUpRegistry {
 				  											  		.getFileConfig()
 				  											  		.getCrossCurrencyMatrixFileName();
 		
-		final List<String> crossCurrencyMatrixList = fileContentsCache
-				.getCachedFileContentsAsList(crossCurrencyMatrixFileName);
-		final CurrencyIndexLookUp currencyIndexLookup = CurrencyIndexLookUp
-				.createCurrencyIndexLookup(crossCurrencyMatrixList);
+		final List<String> crossCurrencyMatrixList = fileContentsCache.getCachedFileContentsAsList(crossCurrencyMatrixFileName);
+		final CurrencyIndexLookUp currencyIndexLookup = CurrencyIndexLookUp.createCurrencyIndexLookup(crossCurrencyMatrixList);
 		return currencyIndexLookup;
 	}
 	private static CurrencyDecimalLookUp buildCurrencyDecimalLookUp(final FileContentsCache fileContentsCache) {
@@ -51,10 +46,8 @@ class FxCalculatorLookUpRegistry {
 																	  .getFileConfig()
 																	  .getCurrencyDecimalPlacesFileName();
 		
-		final List<String> currencyDecimalPlacesList = fileContentsCache
-				.getCachedFileContentsAsList(currencyDecimalPlacesFileName);
-		final CurrencyDecimalLookUp currencyDecimalLookUp = CurrencyDecimalLookUp
-				.createCurrencyDecimalLookUp(currencyDecimalPlacesList);
+		final List<String> currencyDecimalPlacesList = fileContentsCache.getCachedFileContentsAsList(currencyDecimalPlacesFileName);
+		final CurrencyDecimalLookUp currencyDecimalLookUp = CurrencyDecimalLookUp.createCurrencyDecimalLookUp(currencyDecimalPlacesList);
 		return currencyDecimalLookUp;
 	}
 }

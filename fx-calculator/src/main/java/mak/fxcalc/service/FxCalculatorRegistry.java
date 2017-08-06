@@ -42,15 +42,15 @@ class FxCalculatorRegistry {
 		if (null == fileContentsCache|| fileContentsCache.isEmpty()) return null;
 		
 		final FxCalculatorLookUpRegistry fxCalculatorLookUpRegistry = buildLookUpRegistry(fileContentsCache);
-		if (null == fxCalculatorLookUpRegistry)
-			return null;
+		if (null == fxCalculatorLookUpRegistry)	return null;
 
 		final CrossCurrencyTable crossCurrencyTable = buildCrossCurrencyTable(fileContentsCache,
-				fxCalculatorLookUpRegistry);
+																			  fxCalculatorLookUpRegistry);
 		final ConversionRateFeedTable conversionRateFeedTable = buildConversionRateFeedTable(fileContentsCache);
 		
 		final FxCalculatorRegistry fxCalculatorRegistry = new FxCalculatorRegistry(fxCalculatorLookUpRegistry,
-				crossCurrencyTable, conversionRateFeedTable);
+																				   crossCurrencyTable, 
+																				   conversionRateFeedTable);
 		return fxCalculatorRegistry;
 	}
 
@@ -91,8 +91,8 @@ class FxCalculatorRegistry {
 							  final CrossCurrencyTable crossCurrencyTable, 
 							  final ConversionRateFeedTable conversionRateFeedTable) {
 		final boolean status = fxCalculatorLookUpRegistry == null 
-						|| crossCurrencyTable == null 
-						|| conversionRateFeedTable == null;
+								|| crossCurrencyTable == null 
+								|| conversionRateFeedTable == null;
 		return status;
 	}
 }

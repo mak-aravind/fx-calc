@@ -3,6 +3,7 @@ package mak.fxcalc.parser;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 import mak.fxcalc.util.ParsedObject;
 
@@ -14,19 +15,16 @@ public class CrossCurrencyTableParser implements IParser<String[][]>{
 
 	@Override
 	public ParsedObject<String[][]> parseValidatedLines(final List<String> validatedInputLines) {
-		if (validatedInputLines==null || validatedInputLines.isEmpty()) return null;
-		final int size = validatedInputLines.size();
-		final String[][] crossCurrencyMatrix = new String[size][size];
-		int i=0;
-		for (String line : validatedInputLines) {
-			int j=0;
-			final List<String> entriesInLine = Arrays.asList(this.csvStrippingPattern.split(line));
-			for (String entry : entriesInLine) {
-				crossCurrencyMatrix[i][j++] = entry;
-			}
-			++i;
-		}
+		if (null == validatedInputLines || validatedInputLines.isEmpty()) return null;
+		final String[][] crossCurrencyMatrix = getPopulatedCrossCurrencyMatrix(validatedInputLines);
 		final ParsedObject<String[][]> parsedObject = new ParsedObject<>(crossCurrencyMatrix);
 		return parsedObject;
+	}
+	
+	private String[][] getPopulatedCrossCurrencyMatrix(final List<String> validatedInputLines){
+		return validatedInputLines.stream()
+								  .map(line -> Arrays.asList(this.csvStrippingPattern.split(line)))
+								  .map(entries -> entries.toArray())
+								  .toArray(String[][]::new);
 	}
 }
