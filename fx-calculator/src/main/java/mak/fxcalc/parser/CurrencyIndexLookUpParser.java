@@ -22,8 +22,8 @@ public class CurrencyIndexLookUpParser implements IParser<Map<String, Integer>>{
 	@Override
 	public ParsedObject<Map<String, Integer>> parseValidatedLines(final List<String> validatedInputLines) {
 		if (null == validatedInputLines || validatedInputLines.isEmpty()) return new ParsedObject<>(Collections.emptyMap());
-		String firstLineListOfCurrencies = validatedInputLines.get(FIRST_LINE);
-		List<String> currenciesToIndex  = Arrays.asList(this.csvStrippingPattern.split(firstLineListOfCurrencies));
+		final String firstLineListOfCurrencies = validatedInputLines.get(FIRST_LINE);
+		final List<String> currenciesToIndex  = Arrays.asList(this.csvStrippingPattern.split(firstLineListOfCurrencies));
 		final Map<String,Integer> currencyIndexMap= getCurrenciesIndexedMap(currenciesToIndex);
 		final ParsedObject<Map<String, Integer>> parsedObject = new ParsedObject<>(Collections.unmodifiableMap(currencyIndexMap));
 		return parsedObject;

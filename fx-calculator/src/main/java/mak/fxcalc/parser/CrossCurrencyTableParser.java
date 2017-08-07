@@ -3,7 +3,6 @@ package mak.fxcalc.parser;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 
 import mak.fxcalc.util.ParsedObject;
 
